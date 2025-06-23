@@ -1,6 +1,6 @@
 # AutoBattler
 
-Godot试作——自走棋
+Godot试作——像素自走棋
 
 ## Credits
 

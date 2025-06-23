@@ -20,4 +20,4 @@ const RARITY_COLORS := {
 @export var skin_coordinates: Vector2i
 
 func _to_string() -> String:
-      return name
+    return name
