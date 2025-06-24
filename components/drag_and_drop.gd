@@ -1,14 +1,14 @@
 class_name DragAndDrop
 extends Node
 
-signal drag_canceled(starting_pos: Vector2)
+signal drag_canceled(start_pos: Vector2)
 signal drag_started
-signal dropped(starting_pos: Vector2)
+signal dropped(start_pos: Vector2)
 
 @export var enabled: bool = true
 @export var target: Area2D
 
-var starting_pos: Vector2
+var start_pos: Vector2
 var offset := Vector2.ZERO
 var dragging := false
 
@@ -34,11 +34,11 @@ func _end_dragging() -> void:
 
 func _cancel_dragging() -> void:
 	_end_dragging()
-	drag_canceled.emit(starting_pos)
+	drag_canceled.emit(start_pos)
 
 func _start_dragging() -> void:
 	dragging = true
-	starting_pos = target.global_position
+	start_pos = target.global_position
 	target.add_to_group("dragging")
 	# 确保拖拽的节点在最上层
 	target.z_index = 99
@@ -47,15 +47,13 @@ func _start_dragging() -> void:
 
 func _drop() -> void:
 	_end_dragging()
-	dropped.emit(starting_pos)
+	dropped.emit(start_pos)
 
 func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
-	if not enabled:
-		return
-
-	var active_drag_node := get_tree().get_first_node_in_group("dragging")
-	if active_drag_node and not dragging:
-		return
-
-	if event.is_action_pressed("select"):
+	var can_start_dragging := enabled and not dragging and not _has_other_dragging_object()
+	
+	if can_start_dragging and event.is_action_pressed("select"):
 		_start_dragging()
+
+func _has_other_dragging_object() -> bool:
+	return get_tree().get_first_node_in_group("dragging") != null
