@@ -14,13 +14,22 @@ func _ready():
 			units[Vector2i(i, j)] = null
 
 
-func add_unit(tile: Vector2i, unit: Node) -> void:
+func add_unit_to_tile(unit: Node, tile: Vector2i) -> void:
 	units[tile] = unit
 	unit_grid_changed.emit()
 
 
+func remove_unit_from_tile(tile: Vector2i) -> void:
+	var unit := units[tile] as Node
+	if not unit:
+		return
+	
+	units[tile] = null
+	unit_grid_changed.emit()
+
+
 func is_tile_occupied(tile: Vector2i) -> bool:
-	return units.has(tile)
+	return units[tile] != null
 
 
 func is_grid_full() -> bool:

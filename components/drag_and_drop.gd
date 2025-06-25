@@ -1,14 +1,14 @@
 class_name DragAndDrop
 extends Node
 
-signal drag_canceled(starting_position: Vector2)
+signal drag_canceled(start_pos: Vector2)
 signal drag_started
-signal dropped(starting_position: Vector2)
+signal dropped(start_pos: Vector2)
 
 @export var enabled: bool = true
 @export var target: Area2D
 
-var starting_position: Vector2
+var start_pos: Vector2
 var offset := Vector2.ZERO
 var dragging := false
 
@@ -38,12 +38,12 @@ func _end_dragging() -> void:
 
 func _cancel_dragging() -> void:
 	_end_dragging()
-	drag_canceled.emit(starting_position)
+	drag_canceled.emit(start_pos)
 
 
 func _start_dragging() -> void:
 	dragging = true
-	starting_position = target.global_position
+	start_pos = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 99
 	offset = target.global_position - target.get_global_mouse_position()
@@ -52,7 +52,7 @@ func _start_dragging() -> void:
 
 func _drop() -> void:
 	_end_dragging()
-	dropped.emit(starting_position)
+	dropped.emit(start_pos)
 
 
 func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:

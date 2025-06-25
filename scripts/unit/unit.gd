@@ -26,21 +26,21 @@ func set_stats(value: UnitStats) -> void:
 	
 	if not is_node_ready():
 		await ready
-	
+
 	skin.region_rect.position = Vector2(stats.skin_coordinates) * Arena.CELL_SIZE
 
-# 需要重置位置
-func reset_after_dragging(starting_position: Vector2) -> void:
+# 取消拖拽时，需要重置位置
+func reset_pos_after_dragging(start_pos: Vector2) -> void:
 	velocity_based_rotation.enabled = false
-	global_position = starting_position
+	global_position = start_pos
 
 
 func _on_drag_started() -> void:
 	velocity_based_rotation.enabled = true
 
 
-func _on_drag_canceled(starting_position: Vector2) -> void:
-	reset_after_dragging(starting_position)
+func _on_drag_canceled(start_pos: Vector2) -> void:
+	reset_pos_after_dragging(start_pos)
 
 
 func _on_mouse_entered() -> void:
