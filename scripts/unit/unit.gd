@@ -2,7 +2,7 @@
 class_name Unit
 extends Area2D
 
-@export var stats: UnitsStats: set = set_stats
+@export var stats: UnitStats: set = set_stats
 
 @onready var skin: Sprite2D = $Visuals/Skin
 @onready var health_bar: ProgressBar = $HealthBar
@@ -18,7 +18,7 @@ func _ready() -> void:
 		drag_and_drop.drag_canceled.connect(_on_drag_canceled)
 
 
-func set_stats(value: UnitsStats) -> void:
+func set_stats(value: UnitStats) -> void:
 	stats = value
 	
 	if value == null:
