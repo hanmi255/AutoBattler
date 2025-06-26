@@ -3,10 +3,11 @@ extends Node2D
 
 signal unit_grid_changed
 
-# NOTE: x为列，y为行
+## NOTE: x为列，y为行
 @export var size: Vector2
 
 var units: Dictionary
+
 
 func _ready():
 	for i in int(size.x):
@@ -41,7 +42,7 @@ func get_first_empty_tile() -> Vector2i:
 		if not is_tile_occupied(tile):
 			return tile
 
-	# 没有空闲瓦片
+	## 没有空闲瓦片
 	return Vector2i(-1, -1)
 
 

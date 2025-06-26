@@ -8,6 +8,7 @@ extends Node
 
 @onready var source_id := play_area.tile_set.get_source_id(0)
 
+
 func _process(_delta):
 	if not enabled:
 		return
