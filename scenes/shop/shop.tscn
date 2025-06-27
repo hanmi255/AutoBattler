@@ -1,15 +1,69 @@
-[gd_scene format=3 uid="uid://rmdwsydwp8gg"]
+[gd_scene load_steps=9 format=3 uid="uid://rmdwsydwp8gg"]
+
+[ext_resource type="PackedScene" uid="uid://dkxjro6e4gqis" path="res://scenes/gold_display/gold_display.tscn" id="1_ctpgp"]
+[ext_resource type="Script" uid="uid://bo7climd1yeix" path="res://scripts/shop/shop.gd" id="1_ptf86"]
+[ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_ge4d2"]
+[ext_resource type="PackedScene" uid="uid://dl36kawnud74k" path="res://scenes/unit_card/unit_card.tscn" id="2_ptf86"]
+[ext_resource type="Resource" uid="uid://bei6adswdjpq4" path="res://data/unit_pool/unit_pool.tres" id="2_xcdpw"]
+[ext_resource type="PackedScene" uid="uid://bs62a6fkeay7b" path="res://scenes/xp_button/xp_button.tscn" id="3_ge4d2"]
+[ext_resource type="PackedScene" uid="uid://bb7lr8daskuah" path="res://scenes/reroll_button/reroll_button.tscn" id="4_xcdpw"]
+[ext_resource type="PackedScene" uid="uid://c83qy7v7qskl0" path="res://scenes/xp_tracker/xp_tracker.tscn" id="5_tp26b"]
 
 [node name="Shop" type="VBoxContainer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -121.0
+offset_top = 6.0
+offset_right = -7.0
+offset_bottom = 293.0
 grow_horizontal = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_ptf86")
+unit_pool = ExtResource("2_xcdpw")
+player_stats = ExtResource("2_ge4d2")
 
 [node name="TopHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="GoldDisplay" parent="TopHBox" instance=ExtResource("1_ctpgp")]
+layout_mode = 2
+
+[node name="ShopCards" type="VBoxContainer" parent="TopHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UnitCard" parent="TopHBox/ShopCards" instance=ExtResource("2_ptf86")]
+layout_mode = 2
+
+[node name="UnitCard2" parent="TopHBox/ShopCards" instance=ExtResource("2_ptf86")]
+layout_mode = 2
+
+[node name="UnitCard3" parent="TopHBox/ShopCards" instance=ExtResource("2_ptf86")]
+layout_mode = 2
+
+[node name="UnitCard4" parent="TopHBox/ShopCards" instance=ExtResource("2_ptf86")]
+layout_mode = 2
+
+[node name="UnitCard5" parent="TopHBox/ShopCards" instance=ExtResource("2_ptf86")]
+layout_mode = 2
+
 [node name="BottomHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="XPButton" parent="BottomHBox" instance=ExtResource("3_ge4d2")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="RerollAndXPTracker" type="VBoxContainer" parent="BottomHBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="RerollButton" parent="BottomHBox/RerollAndXPTracker" instance=ExtResource("4_xcdpw")]
+layout_mode = 2
+
+[node name="XPTracker" parent="BottomHBox/RerollAndXPTracker" instance=ExtResource("5_tp26b")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[connection signal="pressed" from="BottomHBox/RerollAndXPTracker/RerollButton" to="." method="_on_reroll_button_pressed"]
