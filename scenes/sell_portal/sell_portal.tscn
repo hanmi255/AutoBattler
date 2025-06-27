@@ -43,21 +43,21 @@ text = "SELL"
 label_settings = SubResource("LabelSettings_svd6b")
 horizontal_alignment = 1
 
-[node name="GoldHBoxContainer" type="HBoxContainer" parent="."]
+[node name="GoldHBox" type="HBoxContainer" parent="."]
 visible = false
 offset_top = 48.0
 offset_right = 32.0
 offset_bottom = 66.0
 alignment = 1
 
-[node name="GoldLabel" type="Label" parent="GoldHBoxContainer"]
+[node name="GoldLabel" type="Label" parent="GoldHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 label_settings = SubResource("LabelSettings_svd6b")
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="GoldHBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="GoldHBox"]
 custom_minimum_size = Vector2(9, 0)
 layout_mode = 2
 texture = ExtResource("5_gmlex")

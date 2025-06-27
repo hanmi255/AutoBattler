@@ -4,7 +4,7 @@ extends Area2D
 @export var player_stats: PlayerStats
 
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
-@onready var gold_h_box_container: HBoxContainer = $GoldHBoxContainer
+@onready var gold_h_box: HBoxContainer = $GoldHBox
 @onready var gold_label: Label = %GoldLabel
 
 var current_unit: Unit
@@ -39,7 +39,7 @@ func _on_area_entered(unit: Unit) -> void:
 	current_unit = unit
 	outline_highlighter.highlight()
 	gold_label.text = str(unit.stats.get_gold_value())
-	gold_h_box_container.show()
+	gold_h_box.show()
 
 
 func _on_area_exited(unit: Unit) -> void:
@@ -47,4 +47,4 @@ func _on_area_exited(unit: Unit) -> void:
 		current_unit = null
 
 	outline_highlighter.clear_highlight()
-	gold_h_box_container.hide()
+	gold_h_box.hide()
