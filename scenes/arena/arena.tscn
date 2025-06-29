@@ -1,18 +1,20 @@
-[gd_scene load_steps=18 format=4 uid="uid://1utsbx5l7poa"]
+[gd_scene load_steps=20 format=4 uid="uid://1utsbx5l7poa"]
 
 [ext_resource type="TileSet" uid="uid://cpt5peppfmfpn" path="res://scenes/arena/tile_set.tres" id="1_1qjuf"]
 [ext_resource type="Script" uid="uid://c0x1hd3xj3daw" path="res://scripts/arena/arena.gd" id="1_5tue2"]
 [ext_resource type="Texture2D" uid="uid://mbxv0ayrsu3d" path="res://assets/sprites/star_particle.png" id="2_8trdl"]
+[ext_resource type="AudioStream" uid="uid://dwse76yhsgxvm" path="res://assets/music/alexander_ehlers_twists.ogg" id="2_t3vx8"]
 [ext_resource type="Script" uid="uid://s5hbvtwr5hmj" path="res://components/unit_grid.gd" id="4_asdgj"]
 [ext_resource type="Script" uid="uid://c3fy5lxhf1vb" path="res://components/play_area.gd" id="4_jx0ua"]
 [ext_resource type="Script" uid="uid://d80odw7ld1fi" path="res://components/tile_highlighter.gd" id="6_u52cf"]
 [ext_resource type="Script" uid="uid://ctqviedvuqxsl" path="res://components/unit_mover.gd" id="8_ii07k"]
+[ext_resource type="AudioStream" uid="uid://xgrsj3clmat0" path="res://assets/sfx/unit_place.ogg" id="8_w4nra"]
 [ext_resource type="Script" uid="uid://doihm1xxep4g8" path="res://components/unit_combiner.gd" id="9_xgbxb"]
+[ext_resource type="AudioStream" uid="uid://dubwbrp3e8hg3" path="res://assets/sfx/combine.ogg" id="10_fv88w"]
 [ext_resource type="Script" uid="uid://cvbann7ls55ms" path="res://components/unit_spawner.gd" id="11_xgbxb"]
 [ext_resource type="PackedScene" uid="uid://bq45j4qrhajew" path="res://scenes/team_size_ui/team_size_ui.tscn" id="12_vmsrg"]
 [ext_resource type="PackedScene" uid="uid://dp660ky27o66i" path="res://scenes/sell_portal/sell_portal.tscn" id="13_fv88w"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="13_s83md"]
-[ext_resource type="PackedScene" uid="uid://dx0tq82dw1eh3" path="res://scenes/traits/traits.tscn" id="14_fv88w"]
 [ext_resource type="PackedScene" uid="uid://rmdwsydwp8gg" path="res://scenes/shop/shop.tscn" id="15_w4nra"]
 
 [sub_resource type="Curve" id="Curve_5tue2"]
@@ -39,6 +41,7 @@ color = Color(1, 1, 1, 0.494118)
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_5tue2")
+arena_music = ExtResource("2_t3vx8")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -125,6 +128,7 @@ tile = Vector2i(3, 0)
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_ii07k")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+unit_place_sound = ExtResource("8_w4nra")
 
 [node name="UnitSpawner" type="Node" parent="." node_paths=PackedStringArray("bench", "game_area")]
 script = ExtResource("11_xgbxb")
@@ -134,6 +138,7 @@ game_area = NodePath("../GameArea")
 [node name="UnitCombiner" type="Node" parent="." node_paths=PackedStringArray("buffer_timer")]
 script = ExtResource("9_xgbxb")
 buffer_timer = NodePath("BufferTimer")
+combine_sound = ExtResource("10_fv88w")
 metadata/_custom_type_script = "uid://doihm1xxep4g8"
 
 [node name="BufferTimer" type="Timer" parent="UnitCombiner"]
@@ -157,7 +162,4 @@ offset_right = 23.0
 offset_bottom = 28.0
 grow_horizontal = 2
 player_stats = ExtResource("13_s83md")
-arena_grid = NodePath("../../GameArea/ArenaUnitGrid")
-
-[node name="Traits" parent="UI" node_paths=PackedStringArray("arena_grid") instance=ExtResource("14_fv88w")]
 arena_grid = NodePath("../../GameArea/ArenaUnitGrid")

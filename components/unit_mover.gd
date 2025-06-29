@@ -2,6 +2,7 @@ class_name UnitMover
 extends Node
 
 @export var play_areas: Array[PlayArea]
+@export var unit_place_sound: AudioStream
 
 
 func _ready():
@@ -39,6 +40,7 @@ func _reset_unit_to_start_pos(unit: Unit, start_pos: Vector2):
 
 	unit.reset_pos_after_dragging(start_pos)
 	play_areas[i].unit_grid.add_unit_to_tile(unit, tile)
+	SFXPlayer.play(unit_place_sound)
 
 
 func _move_unit(unit: Unit, play_area: PlayArea, tile: Vector2i):
@@ -87,3 +89,4 @@ func _on_unit_dropped(start_pos: Vector2, unit: Unit) -> void:
 
 	## 否则移动单元
 	_move_unit(unit, new_area, new_tile)
+	SFXPlayer.play(unit_place_sound)

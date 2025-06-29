@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp660ky27o66i"]
+[gd_scene load_steps=11 format=3 uid="uid://dp660ky27o66i"]
 
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="1_g4w48"]
 [ext_resource type="Script" uid="uid://dd8s5b5bahcva" path="res://scripts/sell_portal/sell_portal.gd" id="1_q37ab"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ro1ssup7dcp" path="res://assets/sprites/tiles.png" id="2_se251"]
 [ext_resource type="Resource" uid="uid://bei6adswdjpq4" path="res://data/unit_pool/unit_pool.tres" id="2_svd6b"]
 [ext_resource type="Script" uid="uid://bijii2jph1jqd" path="res://components/outline_highlighter.gd" id="3_q37ab"]
+[ext_resource type="AudioStream" uid="uid://p1b7rsqtf0cc" path="res://assets/sfx/sell.ogg" id="4_6kxgn"]
 [ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="5_gmlex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlex"]
@@ -19,6 +20,7 @@ shadow_color = Color(0, 0, 0, 0.627451)
 script = ExtResource("1_q37ab")
 unit_pool = ExtResource("2_svd6b")
 player_stats = ExtResource("2_gmlex")
+sell_sound = ExtResource("4_6kxgn")
 
 [node name="Visuals" type="CanvasGroup" parent="."]
 material = ExtResource("1_g4w48")

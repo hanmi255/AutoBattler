@@ -3,6 +3,7 @@ extends Area2D
 
 @export var unit_pool: UnitPool
 @export var player_stats: PlayerStats
+@export var sell_sound: AudioStream
 
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 @onready var gold_h_box: HBoxContainer = $GoldHBox
@@ -28,6 +29,7 @@ func _on_sell_unit(unit: Unit) -> void:
 	unit_pool.add_unit_to_pool(unit.stats)
 
 	unit.queue_free()
+	SFXPlayer.play(sell_sound)
 
 
 func _on_unit_dropped(_start_pos: Vector2, unit: Unit) -> void:

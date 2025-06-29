@@ -15,6 +15,15 @@ run/main_scene="uid://1utsbx5l7poa"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://c308gwngwm51i"
 
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+MusicPlayer="*res://scenes/audio_player/music_player.tscn"
+SFXPlayer="*res://scenes/audio_player/sfx_player.tscn"
+
 [display]
 
 window/size/viewport_width=640
