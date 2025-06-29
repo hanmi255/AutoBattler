@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://1utsbx5l7poa"]
+[gd_scene load_steps=18 format=4 uid="uid://1utsbx5l7poa"]
 
 [ext_resource type="TileSet" uid="uid://cpt5peppfmfpn" path="res://scenes/arena/tile_set.tres" id="1_1qjuf"]
 [ext_resource type="Script" uid="uid://c0x1hd3xj3daw" path="res://scripts/arena/arena.gd" id="1_5tue2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bq45j4qrhajew" path="res://scenes/team_size_ui/team_size_ui.tscn" id="12_vmsrg"]
 [ext_resource type="PackedScene" uid="uid://dp660ky27o66i" path="res://scenes/sell_portal/sell_portal.tscn" id="13_fv88w"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="13_s83md"]
+[ext_resource type="PackedScene" uid="uid://dx0tq82dw1eh3" path="res://scenes/traits/traits.tscn" id="14_fv88w"]
 [ext_resource type="PackedScene" uid="uid://rmdwsydwp8gg" path="res://scenes/shop/shop.tscn" id="15_w4nra"]
 
 [sub_resource type="Curve" id="Curve_5tue2"]
@@ -156,4 +157,7 @@ offset_right = 23.0
 offset_bottom = 28.0
 grow_horizontal = 2
 player_stats = ExtResource("13_s83md")
+arena_grid = NodePath("../../GameArea/ArenaUnitGrid")
+
+[node name="Traits" parent="UI" node_paths=PackedStringArray("arena_grid") instance=ExtResource("14_fv88w")]
 arena_grid = NodePath("../../GameArea/ArenaUnitGrid")
