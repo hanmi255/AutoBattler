@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://bbecnstejsluf"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_wre7e"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_1pswc"]
+[ext_resource type="Resource" uid="uid://b17t53lckfns3" path="res://data/traits/elf.tres" id="3_u2lft"]
+[ext_resource type="Resource" uid="uid://d02rfyy23wbvc" path="res://data/traits/ranger.tres" id="4_vbc6x"]
+
+[resource]
+script = ExtResource("1_wre7e")
+name = "Rumonto"
+rarity = 2
+gold_cost = 1
+tier = 1
+traits = Array[ExtResource("2_1pswc")]([ExtResource("3_u2lft"), ExtResource("4_vbc6x")])
+pool_count = 5
+skin_coordinates = Vector2i(2, 0)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://clpmvvri6jt7y"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_w7sm4"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_w8lbt"]
+[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="3_ic0si"]
+[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="4_ar2eu"]
+
+[resource]
+script = ExtResource("1_w7sm4")
+name = "Libenhua"
+rarity = 0
+gold_cost = 1
+tier = 1
+traits = Array[ExtResource("2_w8lbt")]([ExtResource("3_ic0si"), ExtResource("4_ar2eu")])
+pool_count = 5
+skin_coordinates = Vector2i(0, 3)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

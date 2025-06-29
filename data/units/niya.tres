@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://c17c6gpf54bpg"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_ymefe"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_rwdrh"]
+[ext_resource type="Resource" uid="uid://b17t53lckfns3" path="res://data/traits/elf.tres" id="3_ymefe"]
+[ext_resource type="Resource" uid="uid://dqfmcpnoabva" path="res://data/traits/wizard.tres" id="4_rwdrh"]
+
+[resource]
+script = ExtResource("1_ymefe")
+name = "Niya"
+rarity = 2
+gold_cost = 3
+tier = 1
+traits = Array[ExtResource("2_rwdrh")]([ExtResource("3_ymefe"), ExtResource("4_rwdrh")])
+pool_count = 5
+skin_coordinates = Vector2i(2, 2)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

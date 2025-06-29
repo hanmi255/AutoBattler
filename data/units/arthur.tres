@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://t4bdfbp4ienm"]
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://bsfsh3u5jpced"]
 
 [ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_b6a51"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_0x1t0"]
+[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="3_vyn1g"]
+[ext_resource type="Resource" uid="uid://05wl6hatg0gh" path="res://data/traits/noble.tres" id="4_g8o77"]
 
 [resource]
 script = ExtResource("1_b6a51")
 name = "Arthur"
-rarity = 2
-gold_cost = 4
+rarity = 3
+gold_cost = 5
+tier = 1
+traits = Array[ExtResource("2_0x1t0")]([ExtResource("4_g8o77"), ExtResource("3_vyn1g")])
+pool_count = 5
 skin_coordinates = Vector2i(4, 2)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

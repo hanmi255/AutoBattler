@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://dyonwgfnbojt5"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_6tvhe"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_p8fyx"]
+[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="3_a2htq"]
+[ext_resource type="Resource" uid="uid://dqfmcpnoabva" path="res://data/traits/wizard.tres" id="4_go4p3"]
+
+[resource]
+script = ExtResource("1_6tvhe")
+name = "Mihosen"
+rarity = 0
+gold_cost = 1
+tier = 1
+traits = Array[ExtResource("2_p8fyx")]([ExtResource("3_a2htq"), ExtResource("4_go4p3")])
+pool_count = 5
+skin_coordinates = Vector2i(0, 2)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

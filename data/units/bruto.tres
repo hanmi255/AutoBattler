@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://mqn3nh0ya80i"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_q31ir"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_pflws"]
+[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="3_71iwf"]
+[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="4_34kno"]
+
+[resource]
+script = ExtResource("1_q31ir")
+name = "Bruto"
+rarity = 2
+gold_cost = 3
+tier = 1
+traits = Array[ExtResource("2_pflws")]([ExtResource("3_71iwf"), ExtResource("4_34kno")])
+pool_count = 5
+skin_coordinates = Vector2i(3, 2)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

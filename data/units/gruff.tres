@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://c0ispfncaqfmt"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_x6q21"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_ychou"]
+[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="3_x6q21"]
+[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="4_rlo0v"]
+
+[resource]
+script = ExtResource("1_x6q21")
+name = "Gruff"
+rarity = 1
+gold_cost = 2
+tier = 1
+traits = Array[ExtResource("2_ychou")]([ExtResource("3_x6q21"), ExtResource("4_rlo0v")])
+pool_count = 5
+skin_coordinates = Vector2i(1, 1)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://d2y8430p3jkia"]
+
+[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_ncrxj"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_wdqe8"]
+[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="3_nnqod"]
+[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="4_q3ees"]
+
+[resource]
+script = ExtResource("1_ncrxj")
+name = "Hubick"
+rarity = 3
+gold_cost = 5
+tier = 1
+traits = Array[ExtResource("2_wdqe8")]([ExtResource("3_nnqod"), ExtResource("4_q3ees")])
+pool_count = 5
+skin_coordinates = Vector2i(4, 1)
+metadata/_custom_type_script = "uid://y8ca3hu1873u"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://frvq8s8h77ib"]
+
+[ext_resource type="Texture2D" uid="uid://wxshjtwjoc31" path="res://assets/sprites/traits/human.png" id="1_2kedl"]
+[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="1_e665p"]
+
+[resource]
+script = ExtResource("1_e665p")
+name = "Human"
+icon = ExtResource("1_2kedl")
+description = ""
+levels = 3
+unit_requirements = Array[int]([2, 4, 6])
+unit_modifiers = Array[PackedScene]([null, null, null])
+metadata/_custom_type_script = "uid://cg6tbxkoolqwp"
