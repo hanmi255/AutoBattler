@@ -11,7 +11,7 @@ extends Area2D
 
 
 func set_stats(value: UnitStats) -> void:
-	if not stats or not is_instance_valid(tier_icon):
+	if value == null or not is_instance_valid(tier_icon):
 		return
 		
 	stats = value

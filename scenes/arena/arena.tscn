@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://1utsbx5l7poa"]
+[gd_scene load_steps=28 format=4 uid="uid://1utsbx5l7poa"]
 
 [ext_resource type="TileSet" uid="uid://cpt5peppfmfpn" path="res://scenes/arena/tile_set.tres" id="1_1qjuf"]
 [ext_resource type="Script" uid="uid://c0x1hd3xj3daw" path="res://scripts/arena/arena.gd" id="1_5tue2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cvh3jk70ipm43" path="res://custom_nodes/play_area.gd" id="5_rhjlh"]
 [ext_resource type="Script" uid="uid://d80odw7ld1fi" path="res://components/tile_highlighter.gd" id="6_u52cf"]
 [ext_resource type="Script" uid="uid://b0p5lypmcj3vn" path="res://custom_nodes/unit_mover.gd" id="8_ii07k"]
+[ext_resource type="Script" uid="uid://stedji5qrfxb" path="res://custom_nodes/unit_navigation_debug.gd" id="8_l0cts"]
 [ext_resource type="AudioStream" uid="uid://xgrsj3clmat0" path="res://assets/sfx/unit_place.ogg" id="8_w4nra"]
 [ext_resource type="Script" uid="uid://b4y8ihtmujt4o" path="res://custom_nodes/unit_combiner.gd" id="9_xgbxb"]
 [ext_resource type="AudioStream" uid="uid://dubwbrp3e8hg3" path="res://assets/sfx/combine.ogg" id="10_fv88w"]
@@ -136,6 +137,17 @@ play_area = NodePath("..")
 highlight_layer = NodePath("../HighLight")
 tile = Vector2i(3, 0)
 
+[node name="UnitNavigationDebug" type="Node2D" parent="." node_paths=PackedStringArray("game_area")]
+position = Vector2(160, 32)
+script = ExtResource("8_l0cts")
+color = Color(0.796078, 0.34902, 0.45098, 0.517647)
+path_colors = Array[Color]([Color(0.331239, 0.865301, 0.996207, 1), Color(1, 0.510256, 0.443869, 1), Color(0, 1, 0, 1), Color(0.998644, 0.888282, 7.70092e-07, 1), Color(0.96124, 0.332391, 1, 1)])
+game_area = NodePath("../GameArea")
+metadata/_custom_type_script = "uid://stedji5qrfxb"
+
+[node name="SellPortal" parent="." instance=ExtResource("13_fv88w")]
+position = Vector2(80, 288)
+
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_ii07k")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
@@ -158,9 +170,6 @@ combine_sound = ExtResource("10_fv88w")
 
 [node name="BufferTimer" type="Timer" parent="UnitCombiner"]
 one_shot = true
-
-[node name="SellPortal" parent="." instance=ExtResource("13_fv88w")]
-position = Vector2(80, 288)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

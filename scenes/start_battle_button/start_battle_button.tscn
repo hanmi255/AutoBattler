@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://573xtepvubod" path="res://assets/sprites/start_battle.png" id="2_le7hg"]
 
 [node name="StartBattleButton" type="Button"]
-custom_minimum_size = Vector2(32, 24)Add commentMore actions
-offset_right = 8.0
+custom_minimum_size = Vector2(32, 24)
 offset_bottom = 8.0
 focus_mode = 0
 script = ExtResource("1_tny1x")
