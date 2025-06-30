@@ -58,6 +58,16 @@ func get_all_units() -> Array[Unit]:
 	return units_array
 
 
+func get_all_occupied_tiles() -> Array[Vector2i]:
+	var tile_array: Array[Vector2i] = []
+	
+	for tile: Vector2i in units.keys():
+		if units[tile]:
+			tile_array.append(tile)
+	
+	return tile_array
+
+
 func _on_unit_tree_exited(unit: Unit, tile: Vector2i) -> void:
 	if unit.is_queued_for_deletion():
 		units[tile] = null

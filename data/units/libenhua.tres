@@ -14,4 +14,5 @@ tier = 1
 traits = Array[ExtResource("2_w8lbt")]([ExtResource("3_ic0si"), ExtResource("4_ar2eu")])
 pool_count = 5
 skin_coordinates = Vector2i(0, 3)
+team = 0
 metadata/_custom_type_script = "uid://y8ca3hu1873u"

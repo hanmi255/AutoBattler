@@ -16,8 +16,10 @@ tier = 1
 traits = Array[ExtResource("4_pwnvi")]([ExtResource("5_imfy1"), ExtResource("6_8bwn0")])
 pool_count = 5
 skin_coordinates = Vector2i(1, 3)
+team = 0
 
 [node name="TierIcon" type="TextureRect"]
+z_index = 1
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
