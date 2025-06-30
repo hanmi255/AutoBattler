@@ -46,8 +46,8 @@ func _on_player_stats_changed() -> void:
 func _set_unit_stats(value: UnitStats) -> void:
 	unit_stats = value
 	
-	if not is_node_ready():
-		await ready
+	if not is_instance_valid(empty_placeholder):
+		return
 
 	if not unit_stats:
 		empty_placeholder.show()

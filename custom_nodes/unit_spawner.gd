@@ -3,10 +3,10 @@ extends Node
 
 signal unit_spawned(unit: Unit)
 
-const UNIT = preload("res://scenes/unit/unit.tscn")
-
 @export var bench: PlayArea
 @export var game_area: PlayArea
+
+@onready var unit_spawner: SceneSpawner = $SceneSpawner
 
 
 func _get_first_available_area() -> PlayArea:
@@ -19,12 +19,11 @@ func spawn_unit(unit: UnitStats) -> void:
 	## TODO throw a popup error message if no area is available
 	assert(area, "No area available to add unit")
 
-	var unit_instance = UNIT.instantiate()
+	var new_unit := unit_spawner.spawn_scene(area.unit_grid) as Unit
 	var tile := area.unit_grid.get_first_empty_tile()
-	area.unit_grid.add_child(unit_instance)
-	area.unit_grid.add_unit_to_tile(unit_instance, tile)
+	area.unit_grid.add_unit_to_tile(new_unit, tile)
 
-	unit_instance.global_position = area.get_global_from_tile(tile) - Arena.HALF_CELL_SIZE
-	unit_instance.stats = unit
+	new_unit.global_position = area.get_global_from_tile(tile) - Arena.HALF_CELL_SIZE
+	new_unit.stats = unit
 	
-	unit_spawned.emit(unit_instance)
+	unit_spawned.emit(new_unit)
