@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cpafdinxx3xhe"]
 
-[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="1_hcn7a"]
-[ext_resource type="Script" uid="uid://71ithmcxilj8" path="res://scripts/battle_unit/battle_unit.gd" id="1_rmpo8"]
+[ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="1_hcn7a"]
+[ext_resource type="Script" uid="uid://d2moienm3nmj4" path="res://scripts/battle_unit/battle_unit.gd" id="1_rmpo8"]
 [ext_resource type="PackedScene" uid="uid://bntiqn3ag20t6" path="res://scenes/health_bar/health_bar.tscn" id="1_ubtrb"]
 [ext_resource type="Resource" uid="uid://bsfsh3u5jpced" path="res://data/units/arthur.tres" id="2_4s270"]
 [ext_resource type="PackedScene" uid="uid://1orv1jkyuru" path="res://scenes/mana_bar/mana_bar.tscn" id="2_hcn7a"]
-[ext_resource type="Script" uid="uid://gss1mi4j7x2j" path="res://components/packed_sprite2d.gd" id="2_tah2m"]
+[ext_resource type="Script" uid="uid://co7xggycwun5m" path="res://components/packed_sprite2d.gd" id="2_tah2m"]
 [ext_resource type="PackedScene" uid="uid://bsmqoitcfppu0" path="res://scenes/tier_icon/tier_icon.tscn" id="3_tah2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmpo8"]
