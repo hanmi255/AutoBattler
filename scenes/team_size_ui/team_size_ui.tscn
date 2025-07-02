@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq45j4qrhajew"]
 
-[ext_resource type="Script" uid="uid://c7uglxw2dyrjb" path="res://scripts/team_size_ui/team_size_ui.gd" id="1_r16ec"]
-[ext_resource type="Texture2D" uid="uid://ckect222m1bin" path="res://assets/sprites/warning.png" id="1_t0pwq"]
+[ext_resource type="Script" uid="uid://j14mhaq40u50" path="res://scripts/team_size_ui/team_size_ui.gd" id="1_r16ec"]
+[ext_resource type="Texture2D" uid="uid://dt5q0iv5iy4mk" path="res://assets/sprites/warning.png" id="1_t0pwq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r16ec"]
 shadow_size = 2

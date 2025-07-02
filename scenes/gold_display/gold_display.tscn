@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkxjro6e4gqis"]
 
-[ext_resource type="Script" uid="uid://ga5jqjx5jj06" path="res://scripts/gold_display/gold_display.gd" id="1_87xkt"]
+[ext_resource type="Script" uid="uid://run3skq4v5ay" path="res://scripts/gold_display/gold_display.gd" id="1_87xkt"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_ti1g2"]
-[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="3_pofyr"]
+[ext_resource type="Texture2D" uid="uid://cquyqi513aqqe" path="res://assets/sprites/gold.png" id="3_pofyr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tgxsc"]
 shadow_size = 2

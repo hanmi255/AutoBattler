@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://05wl6hatg0gh"]
 
-[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="1_uhh4q"]
-[ext_resource type="Texture2D" uid="uid://c32cyuudt3x6x" path="res://assets/sprites/traits/noble.png" id="1_wd45d"]
+[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="1_uhh4q"]
+[ext_resource type="Texture2D" uid="uid://ba0khdbepbd51" path="res://assets/sprites/traits/noble.png" id="1_wd45d"]
 
 [resource]
 script = ExtResource("1_uhh4q")
@@ -11,4 +11,4 @@ description = ""
 levels = 0
 unit_requirements = Array[int]([1])
 unit_modifiers = Array[PackedScene]([null])
-metadata/_custom_type_script = "uid://cg6tbxkoolqwp"
+metadata/_custom_type_script = "uid://o63eqc44k3nx"

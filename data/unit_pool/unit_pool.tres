@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="UnitPool" load_steps=26 format=3 uid="uid://bei6adswdjpq4"]
 
-[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_mc54o"]
+[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="1_mc54o"]
 [ext_resource type="Resource" uid="uid://bh3l2ofxofjqs" path="res://data/units/ailer.tres" id="2_kubhg"]
 [ext_resource type="Resource" uid="uid://bsfsh3u5jpced" path="res://data/units/arthur.tres" id="2_mht32"]
-[ext_resource type="Script" uid="uid://batf1fw12v6jc" path="res://data/unit_pool/unit_pool.gd" id="2_qbk8p"]
+[ext_resource type="Script" uid="uid://bkwh3ybxafc7y" path="res://data/unit_pool/unit_pool.gd" id="2_qbk8p"]
 [ext_resource type="Resource" uid="uid://mqn3nh0ya80i" path="res://data/units/bruto.tres" id="3_a8b02"]
 [ext_resource type="Resource" uid="uid://dplir4wcqwpes" path="res://data/units/elsa.tres" id="4_oaqnu"]
 [ext_resource type="Resource" uid="uid://c0ispfncaqfmt" path="res://data/units/gruff.tres" id="5_kqbte"]
@@ -29,4 +29,4 @@
 [resource]
 script = ExtResource("2_qbk8p")
 available_units = Array[ExtResource("1_mc54o")]([ExtResource("2_kubhg"), ExtResource("2_mht32"), ExtResource("3_a8b02"), ExtResource("4_oaqnu"), ExtResource("5_kqbte"), ExtResource("6_82w2w"), ExtResource("7_sktoa"), ExtResource("16_tnp3y"), ExtResource("8_2qu3d"), ExtResource("17_x30mw"), ExtResource("9_pdy5p"), ExtResource("10_1otmc"), ExtResource("11_yk22e"), ExtResource("15_metv1"), ExtResource("12_73cd4"), ExtResource("13_rgyky"), ExtResource("14_8inb1"), ExtResource("20_bs6jb"), ExtResource("20_kubhg"), ExtResource("22_sbw1h"), ExtResource("23_8g6bp"), ExtResource("19_s3vgb"), ExtResource("24_2x5ul")])
-metadata/_custom_type_script = "uid://batf1fw12v6jc"
+metadata/_custom_type_script = "uid://bkwh3ybxafc7y"

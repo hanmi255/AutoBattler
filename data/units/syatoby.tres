@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://bdx545bknkla7"]
 
-[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="1_v6a6q"]
-[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="2_wr4xn"]
+[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="1_v6a6q"]
+[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="2_wr4xn"]
 [ext_resource type="Resource" uid="uid://r8rvbwil1ydg" path="res://data/traits/viking.tres" id="3_jygve"]
 [ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="4_p4ts7"]
 
@@ -15,4 +15,4 @@ traits = Array[ExtResource("2_wr4xn")]([ExtResource("3_jygve"), ExtResource("4_p
 pool_count = 5
 skin_coordinates = Vector2i(3, 3)
 team = 0
-metadata/_custom_type_script = "uid://y8ca3hu1873u"
+metadata/_custom_type_script = "uid://qmr5xrbc3x0g"

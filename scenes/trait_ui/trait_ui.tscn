@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://7yj6mwn4r6r0"]
 
-[ext_resource type="Texture2D" uid="uid://l1jq47dgo2n1" path="res://assets/sprites/trait_background.png" id="1_6wntd"]
-[ext_resource type="Script" uid="uid://bqgs8d0qi33wo" path="res://scripts/trait_ui/trait_ui.gd" id="1_v8mky"]
+[ext_resource type="Texture2D" uid="uid://cyjdiq3a1mc2v" path="res://assets/sprites/trait_background.png" id="1_6wntd"]
+[ext_resource type="Script" uid="uid://ccg23m2gn3fcf" path="res://scripts/trait_ui/trait_ui.gd" id="1_v8mky"]
 [ext_resource type="Resource" uid="uid://r8rvbwil1ydg" path="res://data/traits/viking.tres" id="2_c4b2r"]
-[ext_resource type="Texture2D" uid="uid://b1aup08or8bao" path="res://assets/sprites/traits/elf.png" id="2_v8mky"]
-[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="3_c4b2r"]
+[ext_resource type="Texture2D" uid="uid://3swx2sliglpe" path="res://assets/sprites/traits/elf.png" id="2_v8mky"]
+[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="3_c4b2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gna1"]
 shadow_size = 2

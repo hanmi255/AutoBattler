@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://o533q7qmby58"]
 
-[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="1_fmv3f"]
-[ext_resource type="Script" uid="uid://bloiwr4nqd7d7" path="res://scripts/unit/unit.gd" id="1_vh40f"]
+[ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="1_fmv3f"]
+[ext_resource type="Script" uid="uid://dfo41kndexvdm" path="res://scripts/unit/unit.gd" id="1_vh40f"]
 [ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_0wuuu"]
-[ext_resource type="Script" uid="uid://b1m04bhcy023b" path="res://components/drag_and_drop.gd" id="3_vh40f"]
+[ext_resource type="Script" uid="uid://cdi77ix4jno1r" path="res://components/drag_and_drop.gd" id="3_vh40f"]
 [ext_resource type="PackedScene" uid="uid://bsmqoitcfppu0" path="res://scenes/tier_icon/tier_icon.tscn" id="4_0wuuu"]
-[ext_resource type="Script" uid="uid://gss1mi4j7x2j" path="res://components/packed_sprite2d.gd" id="4_5im7a"]
+[ext_resource type="Script" uid="uid://co7xggycwun5m" path="res://components/packed_sprite2d.gd" id="4_5im7a"]
 [ext_resource type="PackedScene" uid="uid://bntiqn3ag20t6" path="res://scenes/health_bar/health_bar.tscn" id="4_l0n34"]
 [ext_resource type="PackedScene" uid="uid://1orv1jkyuru" path="res://scenes/mana_bar/mana_bar.tscn" id="5_5im7a"]
-[ext_resource type="Script" uid="uid://br7sg20b30lg7" path="res://components/velocity_based_rotation.gd" id="5_vgvef"]
-[ext_resource type="Script" uid="uid://bijii2jph1jqd" path="res://components/outline_highlighter.gd" id="7_w7udy"]
-[ext_resource type="Script" uid="uid://bfu4v844jf63k" path="res://custom_nodes/unit_anim.gd" id="8_w7udy"]
+[ext_resource type="Script" uid="uid://b745sxyiccb8i" path="res://components/velocity_based_rotation.gd" id="5_vgvef"]
+[ext_resource type="Script" uid="uid://bf4673qa8ama1" path="res://components/outline_highlighter.gd" id="7_w7udy"]
+[ext_resource type="Script" uid="uid://dvm7nq4wr1s88" path="res://custom_nodes/unit_anim.gd" id="8_w7udy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmv3f"]
 size = Vector2(36, 36)

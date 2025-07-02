@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dqfmcpnoabva"]
 
-[ext_resource type="Texture2D" uid="uid://bqakm8biv7pa" path="res://assets/sprites/traits/wizard.png" id="1_517ck"]
-[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="1_yd438"]
+[ext_resource type="Texture2D" uid="uid://dk4otkfv6hfhs" path="res://assets/sprites/traits/wizard.png" id="1_517ck"]
+[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="1_yd438"]
 
 [resource]
 script = ExtResource("1_yd438")
@@ -11,4 +11,4 @@ description = ""
 levels = 3
 unit_requirements = Array[int]([2, 4, 6])
 unit_modifiers = Array[PackedScene]([null, null, null])
-metadata/_custom_type_script = "uid://cg6tbxkoolqwp"
+metadata/_custom_type_script = "uid://o63eqc44k3nx"

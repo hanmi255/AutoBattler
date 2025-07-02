@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=3 uid="uid://dl36kawnud74k"]
 
-[ext_resource type="Script" uid="uid://bqjvqm6jwvr1e" path="res://scripts/unit_card/unit_card.gd" id="1_2ee4v"]
-[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="1_cdcni"]
+[ext_resource type="Script" uid="uid://d0licu6n58ens" path="res://scripts/unit_card/unit_card.gd" id="1_2ee4v"]
+[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="1_cdcni"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_2yriv"]
-[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="2_lw7or"]
-[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="3_00nd2"]
-[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="3_jsq82"]
-[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="4_yqr5c"]
+[ext_resource type="Texture2D" uid="uid://cquyqi513aqqe" path="res://assets/sprites/gold.png" id="2_lw7or"]
+[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="3_00nd2"]
+[ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="3_jsq82"]
+[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="4_yqr5c"]
 [ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="5_1jfxx"]
 [ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="6_rnsru"]
 [ext_resource type="Resource" uid="uid://05wl6hatg0gh" path="res://data/traits/noble.tres" id="7_my3i0"]
-[ext_resource type="AudioStream" uid="uid://05sgyew2ynsi" path="res://assets/sfx/buy.ogg" id="8_yqr5c"]
+[ext_resource type="AudioStream" uid="uid://y0xw02dhoi4b" path="res://assets/sfx/buy.ogg" id="8_yqr5c"]
 
 [sub_resource type="Resource" id="Resource_6rxv1"]
 script = ExtResource("3_00nd2")

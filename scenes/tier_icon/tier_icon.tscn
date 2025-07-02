@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsmqoitcfppu0"]
 
-[ext_resource type="Texture2D" uid="uid://cj1cl8jdui60n" path="res://assets/sprites/level1.png" id="1_do4qs"]
-[ext_resource type="Script" uid="uid://dy0q1bx844tgg" path="res://scripts/tier_icon/tier_icon.gd" id="2_rh1px"]
-[ext_resource type="Script" uid="uid://y8ca3hu1873u" path="res://data/units/unit_stats.gd" id="3_yymux"]
-[ext_resource type="Script" uid="uid://cg6tbxkoolqwp" path="res://data/traits/trait.gd" id="4_pwnvi"]
+[ext_resource type="Texture2D" uid="uid://d3huiur0jcm8b" path="res://assets/sprites/level1.png" id="1_do4qs"]
+[ext_resource type="Script" uid="uid://l0vej3yg5vlw" path="res://scripts/tier_icon/tier_icon.gd" id="2_rh1px"]
+[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="3_yymux"]
+[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="4_pwnvi"]
 [ext_resource type="Resource" uid="uid://r8rvbwil1ydg" path="res://data/traits/viking.tres" id="5_imfy1"]
 [ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="6_8bwn0"]
 

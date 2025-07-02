@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://rmdwsydwp8gg"]
 
 [ext_resource type="PackedScene" uid="uid://dkxjro6e4gqis" path="res://scenes/gold_display/gold_display.tscn" id="1_ctpgp"]
-[ext_resource type="Script" uid="uid://bo7climd1yeix" path="res://scripts/shop/shop.gd" id="1_ptf86"]
+[ext_resource type="Script" uid="uid://bmdcw6qg3aeyf" path="res://scripts/shop/shop.gd" id="1_ptf86"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_ge4d2"]
 [ext_resource type="PackedScene" uid="uid://dl36kawnud74k" path="res://scenes/unit_card/unit_card.tscn" id="2_ptf86"]
 [ext_resource type="Resource" uid="uid://bei6adswdjpq4" path="res://data/unit_pool/unit_pool.tres" id="2_xcdpw"]
 [ext_resource type="PackedScene" uid="uid://bs62a6fkeay7b" path="res://scenes/xp_button/xp_button.tscn" id="3_ge4d2"]
 [ext_resource type="PackedScene" uid="uid://bb7lr8daskuah" path="res://scenes/reroll_button/reroll_button.tscn" id="4_xcdpw"]
 [ext_resource type="PackedScene" uid="uid://c83qy7v7qskl0" path="res://scenes/xp_tracker/xp_tracker.tscn" id="5_tp26b"]
-[ext_resource type="Script" uid="uid://dheh3j700ycci" path="res://components/scene_spawner.gd" id="9_tp26b"]
+[ext_resource type="Script" uid="uid://dbtw8bir04d4f" path="res://components/scene_spawner.gd" id="9_tp26b"]
 
 [node name="Shop" type="VBoxContainer"]
 anchors_preset = 1
@@ -70,6 +70,6 @@ size_flags_horizontal = 8
 [node name="SceneSpawner" type="Node" parent="."]
 script = ExtResource("9_tp26b")
 scene = ExtResource("2_ptf86")
-metadata/_custom_type_script = "uid://dheh3j700ycci"
+metadata/_custom_type_script = "uid://dbtw8bir04d4f"
 
 [connection signal="pressed" from="BottomHBox/RerollAndXPTracker/RerollButton" to="." method="_on_reroll_button_pressed"]

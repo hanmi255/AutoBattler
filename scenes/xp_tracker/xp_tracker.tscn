@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c83qy7v7qskl0"]
 
-[ext_resource type="Script" uid="uid://c5blogajoa3dr" path="res://scripts/xp_tracker/xp_tracker.gd" id="1_ft5t8"]
-[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="1_sgy4l"]
+[ext_resource type="Script" uid="uid://bhstv4kh0ido4" path="res://scripts/xp_tracker/xp_tracker.gd" id="1_ft5t8"]
+[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="1_sgy4l"]
 [ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_htao7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft5t8"]
