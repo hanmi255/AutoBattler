@@ -30,6 +30,12 @@ const TEAM_SPRITE_SHEET := {
 
 @export_category("Battle")
 @export var team: Team
+@export var max_health := 100.0
+@export var max_mana := 100.0
+@export var attack_damage := 10.0
+@export var attack_cd := 1.0
+@export var movement_speed := 40.0
+@export var armor := 0.0
 
 
 func _to_string() -> String:

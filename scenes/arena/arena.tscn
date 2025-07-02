@@ -150,12 +150,14 @@ position = Vector2(80, 288)
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_ii07k")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+game_state = ExtResource("21_gy0qm")
 unit_place_sound = ExtResource("8_w4nra")
 
 [node name="UnitSpawner" type="Node" parent="." node_paths=PackedStringArray("bench", "game_area")]
 script = ExtResource("11_xgbxb")
 bench = NodePath("../Bench")
 game_area = NodePath("../GameArea")
+game_state = ExtResource("21_gy0qm")
 
 [node name="SceneSpawner" type="Node" parent="UnitSpawner"]
 script = ExtResource("11_8kk48")
