@@ -6,13 +6,9 @@
 script = ExtResource("1_7i0mx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
