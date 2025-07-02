@@ -2,6 +2,7 @@ class_name UnitMover
 extends Node
 
 @export var play_areas: Array[PlayArea]
+@export var game_state: GameState
 @export var unit_place_sound: AudioStream
 
 
@@ -71,8 +72,11 @@ func _on_unit_dropped(start_pos: Vector2, unit: Unit) -> void:
 	var old_area_index := _get_play_area_for_pos(start_pos)
 	var new_area_index := _get_play_area_for_pos(unit.get_global_mouse_position())
 
-	## 拖拽到非游戏区域时恢复原位置
-	if new_area_index == -1:
+	var invalid_drop := new_area_index == -1
+	var bench_to_game := old_area_index == 1 and new_area_index == 0
+	var is_battling := game_state.current_phase == GameState.Phase.BATTLE
+
+	if invalid_drop or (bench_to_game and is_battling):
 		_reset_unit_to_start_pos(unit, start_pos)
 		return
 

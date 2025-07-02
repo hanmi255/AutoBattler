@@ -5,6 +5,7 @@ signal unit_spawned(unit: Unit)
 
 @export var bench: PlayArea
 @export var game_area: PlayArea
+@export var game_state: GameState
 
 @onready var unit_spawner: SceneSpawner = $SceneSpawner
 

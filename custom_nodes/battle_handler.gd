@@ -45,6 +45,8 @@ func _prepare_fight() -> void:
 		var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
 		new_unit.add_to_group("player_units")
 		new_unit.stats = unit.stats
+		print("unit.stats: ", unit.stats)
+		print("new_unit.stats: ", new_unit.stats)
 		new_unit.stats.team = UnitStats.Team.PLAYER
 		_setup_battle_unit(unit_coord, new_unit)
 	

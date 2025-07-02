@@ -41,10 +41,10 @@ func get_next_position(moving_unit: BattleUnit, target_unit: BattleUnit) -> Vect
 		astar_grid.set_point_solid(unit_tile, true)
 		return Vector2(-1, -1) # 返回无效坐标表示无法移动
 	
-	# 第3步：有有效路径时，更新单位在网格中的位置，并标记新位置为不可通行
+	# 第3步：存在有效路径时，更新单位在网格中的位置，并标记新位置为不可通行
 	var next_tile := path[1] # 路径的第二个点是下一步要走的位置
-	battle_grid.remove_unit(unit_tile)
-	battle_grid.add_unit(next_tile, moving_unit)
+	battle_grid.remove_unit_from_tile(unit_tile)
+	battle_grid.add_unit_to_tile(moving_unit, next_tile)
 	astar_grid.set_point_solid(next_tile, true)
 	
-	return game_area.get_global_from_tile(next_tile) # 返回世界坐标供单位移动使用
+	return game_area.get_global_from_tile(next_tile)
