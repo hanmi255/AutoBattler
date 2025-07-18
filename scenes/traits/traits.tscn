@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx0tq82dw1eh3"]
 
-[ext_resource type="Script" uid="uid://cd2auyx18u45f" path="res://scripts/traits/traits.gd" id="1_i0cai"]
+[ext_resource type="Script" uid="uid://cd2auyx18u45f" path="res://scenes/traits/traits.gd" id="1_i0cai"]
 [ext_resource type="PackedScene" uid="uid://7yj6mwn4r6r0" path="res://scenes/trait_ui/trait_ui.tscn" id="1_n8hla"]
-[ext_resource type="Script" uid="uid://dbtw8bir04d4f" path="res://components/scene_spawner.gd" id="3_sts0g"]
+[ext_resource type="Script" uid="uid://dbtw8bir04d4f" path="res://scripts/components/scene_spawner.gd" id="3_sts0g"]
 
 [node name="Traits" type="Control"]
 layout_mode = 3
