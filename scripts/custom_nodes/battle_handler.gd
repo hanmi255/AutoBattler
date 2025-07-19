@@ -26,6 +26,8 @@ func _ready() -> void:
 
 
 func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
+	new_unit.stats.reset_health()
+	new_unit.stats.reset_mana()
 	new_unit.global_position = game_area.get_global_from_tile(unit_coord) + Vector2(0, -Arena.QUARTER_CELL_SIZE.y)
 	new_unit.tree_exited.connect(_on_battle_unit_died)
 	battle_unit_grid.add_unit_to_tile(new_unit, unit_coord)
@@ -39,7 +41,7 @@ func _clean_up_fight() -> void:
 
 func _prepare_fight() -> void:
 	get_tree().call_group("units", "hide")
-	
+
 	for unit_coord: Vector2i in game_area_unit_grid.get_all_occupied_tiles():
 		var unit: Unit = game_area_unit_grid.units[unit_coord]
 		var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
@@ -47,7 +49,7 @@ func _prepare_fight() -> void:
 		new_unit.stats = unit.stats
 		new_unit.stats.team = UnitStats.Team.PLAYER
 		_setup_battle_unit(unit_coord, new_unit)
-	
+
 	for unit_coord: Vector2i in ZOMBIE_TEST_POSITIONS:
 		var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
 		new_unit.add_to_group("enemy_units")
@@ -60,7 +62,7 @@ func _on_battle_unit_died() -> void:
 	## 如果游戏状态是准备阶段，则不进行处理
 	if not get_tree() or game_state.current_phase == GameState.Phase.PREPARATION:
 		return
-	
+
 	if get_tree().get_node_count_in_group("enemy_units") == 0:
 		game_state.current_phase = GameState.Phase.PREPARATION
 		player_won.emit()

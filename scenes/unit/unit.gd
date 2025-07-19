@@ -4,7 +4,7 @@ extends Area2D
 
 signal quick_sell_pressed
 
-@export var stats: UnitStats: set = set_stats
+@export var stats: UnitStats: set = _set_stats
 
 @onready var skin: PackedSprite2D = $Visuals/Skin
 @onready var health_bar: ProgressBar = $HealthBar
@@ -32,7 +32,13 @@ func _input(event: InputEvent) -> void:
 		quick_sell_pressed.emit()
 
 
-func set_stats(value: UnitStats) -> void:
+## 取消拖拽时，需要重置位置
+func reset_pos_after_dragging(start_pos: Vector2) -> void:
+	velocity_based_rotation.enabled = false
+	global_position = start_pos
+
+
+func _set_stats(value: UnitStats) -> void:
 	if value == null or not is_instance_valid(tier_icon):
 		return
 
@@ -43,12 +49,6 @@ func set_stats(value: UnitStats) -> void:
 
 	skin.coordinates = stats.skin_coordinates
 	tier_icon.stats = stats
-
-
-## 取消拖拽时，需要重置位置
-func reset_pos_after_dragging(start_pos: Vector2) -> void:
-	velocity_based_rotation.enabled = false
-	global_position = start_pos
 
 
 func _on_drag_started() -> void:
@@ -62,7 +62,7 @@ func _on_drag_canceled(start_pos: Vector2) -> void:
 func _on_mouse_entered() -> void:
 	if drag_and_drop.dragging:
 		return
-	
+
 	is_hovered = true
 	outline_highlighter.highlight()
 	z_index = 1
