@@ -17,7 +17,10 @@ func _draw() -> void:
 		for j in UnitNavigation.astar_grid.region.size.y:
 			if UnitNavigation.astar_grid.is_point_solid(Vector2i(i, j)):
 				draw_rect(Rect2(Vector2(i, j) * Arena.CELL_SIZE, Arena.CELL_SIZE), color)
-	
+
+	# 清理无效单位的路径
+	_clean_invalid_paths()
+
 	var i := 0
 	for path in paths.values():
 		draw_path(path, path_colors[wrapi(i, 0, path_colors.size() - 1)])
@@ -39,3 +42,19 @@ func draw_path(points: Array[Vector2i], path_color: Color) -> void:
 func _on_path_calculated(path: Array[Vector2i], unit: BattleUnit) -> void:
 	paths[unit] = path
 	queue_redraw()
+
+
+func clear_all_paths() -> void:
+	paths.clear()
+	queue_redraw()
+
+
+func _clean_invalid_paths() -> void:
+	var units_to_remove: Array = []
+
+	for unit in paths.keys():
+		if not unit or not is_instance_valid(unit):
+			units_to_remove.append(unit)
+
+	for unit in units_to_remove:
+		paths.erase(unit)

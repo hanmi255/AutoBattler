@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpafdinxx3xhe"]
+[gd_scene load_steps=24 format=3 uid="uid://cpafdinxx3xhe"]
 
 [ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="1_hcn7a"]
 [ext_resource type="Script" uid="uid://d2moienm3nmj4" path="res://scenes/battle_unit/battle_unit.gd" id="1_rmpo8"]
@@ -314,7 +314,6 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="HitBox" type="Area2D" parent="."]
 visible = false
 script = ExtResource("7_1myfu")
-damage = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_nmiut")

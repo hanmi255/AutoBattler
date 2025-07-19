@@ -8,11 +8,11 @@ func _init(new_actor: Node) -> void:
 	actor = new_actor
 
 
-func _physics_process(_delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	pass
 
 
-func _process(_delta: float) -> void:
+func process(_delta: float) -> void:
 	pass
 
 

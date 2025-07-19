@@ -1,7 +1,7 @@
 class_name AutoAttackState
 extends State
 
-const ProjectileSpawner = preload("res://scripts/components/projectile_spawner.gd")
+const ProjectileSpawner_PREFAB = preload("res://scripts/components/projectile_spawner.gd")
 
 signal attack_completed
 signal target_died
@@ -34,7 +34,12 @@ func exit() -> void:
 			target.stats.health_reached_zero.disconnect(_on_target_died)
 
 
-func _process(delta: float) -> void:
+func process(delta: float) -> void:
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit):
+		should_chase_new_target.emit()
+		return
+
 	if not target or not is_instance_valid(target):
 		should_chase_new_target.emit()
 		return
@@ -59,6 +64,11 @@ func _perform_attack() -> void:
 	if not target or not is_instance_valid(target):
 		return
 
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit):
+		should_chase_new_target.emit()
+		return
+
 	is_attacking = true
 	attack_timer = 0.0
 
@@ -76,6 +86,10 @@ func _perform_attack() -> void:
 
 
 func _face_target() -> void:
+	# 检查对象有效性
+	if not actor_unit or not is_instance_valid(actor_unit) or not target or not is_instance_valid(target):
+		return
+
 	# 让单位面向目标
 	var direction = target.global_position - actor_unit.global_position
 	if direction.x < 0:
@@ -89,7 +103,16 @@ func _deal_damage() -> void:
 		is_attacking = false
 		return
 
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit):
+		is_attacking = false
+		should_chase_new_target.emit()
+		return
+
 	var damage = _calculate_damage()
+	if damage <= 0:
+		is_attacking = false
+		return
 
 	# 根据攻击类型处理伤害
 	if actor_unit.stats.is_melee():
@@ -105,6 +128,11 @@ func _deal_damage() -> void:
 
 
 func _calculate_damage() -> int:
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit) or not actor_unit.stats:
+		print("Waning: actor_unit is invalid in _calculate_damage, returning 0 damage")
+		return 0
+
 	var base_damage = actor_unit.stats.get_attack_damage()
 
 	# TODO: 添加暴击、特质加成等计算
@@ -132,7 +160,7 @@ func _deal_melee_damage(damage: int) -> void:
 
 func _deal_ranged_damage(damage: int) -> void:
 	# 远程攻击创建投射物
-	var projectile_spawner = ProjectileSpawner.new()
+	var projectile_spawner = ProjectileSpawner_PREFAB.new()
 	var projectile = projectile_spawner.spawn_projectile(actor_unit, target, damage)
 
 	# 连接投射物信号
@@ -142,6 +170,10 @@ func _deal_ranged_damage(damage: int) -> void:
 
 func _apply_damage_to_target(damage: int) -> void:
 	if not target or not is_instance_valid(target):
+		return
+
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit):
 		return
 
 	# 计算护甲减免
@@ -171,6 +203,9 @@ func _calculate_armor_reduction(damage: int) -> int:
 
 
 func _add_mana_on_attack() -> void:
+	if not actor_unit or not is_instance_valid(actor_unit):
+		return
+
 	if actor_unit.stats.max_mana > 0:
 		actor_unit.stats.mana += int(UnitStats.MANA_PER_ATTACK)
 
@@ -208,6 +243,10 @@ func _on_projectile_missed() -> void:
 
 
 func _on_melee_hit() -> void:
+	# 检查actor_unit是否仍然有效
+	if not actor_unit or not is_instance_valid(actor_unit):
+		return
+
 	# 近战攻击命中，直接造成伤害
 	var damage = actor_unit.hit_box.damage
 	_apply_damage_to_target(damage)

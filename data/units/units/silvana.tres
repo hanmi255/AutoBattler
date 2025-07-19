@@ -21,4 +21,5 @@ ability_power = 0
 attack_speed = 0.85
 armor = 0
 magic_resist = 1
-attack_range = 1metadata/_custom_type_script = "uid://qmr5xrbc3x0g"
+attack_range = 1
+metadata/_custom_type_script = "uid://qmr5xrbc3x0g"

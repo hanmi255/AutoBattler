@@ -18,14 +18,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not enabled:
+	if not enabled or not actor or not is_instance_valid(actor):
+		return
+
+	if not fsm or not fsm.state:
 		return
 
 	fsm.state.physics_process(delta)
 
 
 func _process(delta: float) -> void:
-	if not enabled:
+	if not enabled or not actor or not is_instance_valid(actor):
+		return
+
+	if not fsm or not fsm.state:
 		return
 
 	fsm.state.process(delta)
@@ -35,9 +41,15 @@ func _set_enabled(value: bool) -> void:
 	enabled = value
 
 	if enabled:
+		# 检查actor是否仍然有效
+		if not actor or not is_instance_valid(actor):
+			enabled = false
+			return
 		_start_chasing()
 	else:
-		fsm.change_state(null)
+		# 清理当前状态
+		if fsm and fsm.state:
+			fsm.change_state(null)
 
 
 func _start_chasing() -> void:
