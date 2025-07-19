@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://co7xggycwun5m" path="res://scripts/components/packed_sprite2d.gd" id="2_tah2m"]
 [ext_resource type="PackedScene" uid="uid://bsmqoitcfppu0" path="res://scenes/tier_icon/tier_icon.tscn" id="3_tah2m"]
 [ext_resource type="Script" uid="uid://hqvju1imcmcd" path="res://scripts/components/hurt_box.gd" id="6_1myfu"]
+[ext_resource type="Script" uid="uid://dxo20q07sjmht" path="res://scripts/components/hit_box.gd" id="7_1myfu"]
 [ext_resource type="Script" uid="uid://dpft2hbe72mu7" path="res://scenes/battle_unit/ai/unit_ai.gd" id="8_hf5vq"]
 [ext_resource type="Script" uid="uid://cf1v2dlticb3n" path="res://scripts/custom_nodes/detect_range.gd" id="10_1myfu"]
 [ext_resource type="Script" uid="uid://dhmjvhis8vipc" path="res://scripts/custom_nodes/target_finder.gd" id="10_nmiut"]
@@ -309,6 +310,15 @@ metadata/_custom_type_script = "uid://hqvju1imcmcd"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_nmiut")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="HitBox" type="Area2D" parent="."]
+visible = false
+script = ExtResource("7_1myfu")
+damage = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_nmiut")
+debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="HealthBar" parent="." instance=ExtResource("1_ubtrb")]
 offset_left = -15.0

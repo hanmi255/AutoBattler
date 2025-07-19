@@ -32,6 +32,9 @@ func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
 	new_unit.tree_exited.connect(_on_battle_unit_died)
 	battle_unit_grid.add_unit_to_tile(new_unit, unit_coord)
 
+	# 启用AI系统
+	new_unit.unit_ai.enabled = true
+
 
 func _clean_up_fight() -> void:
 	get_tree().call_group("player_units", "queue_free")

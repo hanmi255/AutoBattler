@@ -6,6 +6,7 @@ extends Area2D
 @onready var skin: PackedSprite2D = $Skin
 @onready var detect_range: Area2D = $DetectRange
 @onready var hurt_box: Area2D = $HurtBox
+@onready var hit_box: Area2D = $HitBox
 @onready var health_bar := $HealthBar
 @onready var mana_bar := $ManaBar
 @onready var tier_icon: TierIcon = $TierIcon
@@ -28,6 +29,11 @@ func set_stats(value: UnitStats) -> void:
 	collision_layer = stats.team + 1
 	hurt_box.collision_layer = stats.team + 1
 	hurt_box.collision_mask = 2 - stats.team
+
+	# 配置HitBox
+	hit_box.collision_layer = 2 - stats.team
+	hit_box.collision_mask = stats.team + 1
+	hit_box.damage = stats.get_attack_damage()
 
 	skin.texture = UnitStats.TEAM_SPRITE_SHEET[stats.team]
 	skin.coordinates = stats.skin_coordinates

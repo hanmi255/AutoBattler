@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvn8x5l7qr2ks"]
+
+[ext_resource type="Script" path="res://scripts/components/projectile.gd" id="1_0x1t0"]
+[ext_resource type="Texture2D" uid="uid://sje8yqwwjwxm" path="res://assets/sprites/star_particle.png" id="2_0x1t0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0x1t0"]
+radius = 4.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_0x1t0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0x1t0")
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0x1t0")
