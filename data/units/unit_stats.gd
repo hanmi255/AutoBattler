@@ -16,6 +16,8 @@ const TEAM_SPRITE_SHEET := {
 	Team.ENEMY: preload("res://assets/sprites/monsters.png")
 }
 
+const MOVE_ONE_TILE_SPEED := 1.0
+
 @export var name: String
 
 @export_category("Data")
@@ -38,10 +40,6 @@ const TEAM_SPRITE_SHEET := {
 @export var armor := 0.0
 
 
-func _to_string() -> String:
-	return name
-
-
 func get_combined_unit_count() -> int:
 	return 3 ** (tier - 1)
 
@@ -53,3 +51,7 @@ func get_gold_value() -> int:
 func _set_tier(value: int):
 	tier = value
 	emit_changed()
+
+
+func _to_string() -> String:
+	return name

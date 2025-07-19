@@ -8,17 +8,18 @@ extends Area2D
 @onready var mana_bar := $ManaBar
 @onready var tier_icon: TierIcon = $TierIcon
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var unit_ai: Node = $UnitAI
 
 
 func set_stats(value: UnitStats) -> void:
 	if value == null or not is_instance_valid(tier_icon):
 		return
-		
+
 	stats = value
 
 	stats = value.duplicate()
 	collision_layer = stats.team + 1
-	
+
 	skin.texture = UnitStats.TEAM_SPRITE_SHEET[stats.team]
 	skin.coordinates = stats.skin_coordinates
 	skin.flip_h = stats.team == stats.Team.PLAYER
