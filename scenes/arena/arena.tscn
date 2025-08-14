@@ -137,13 +137,6 @@ play_area = NodePath("..")
 highlight_layer = NodePath("../HighLight")
 tile = Vector2i(3, 0)
 
-[node name="UnitNavigationDebug" type="Node2D" parent="." node_paths=PackedStringArray("game_area")]
-position = Vector2(160, 32)
-script = ExtResource("8_l0cts")
-color = Color(0.796078, 0.34902, 0.45098, 0.517647)
-path_colors = Array[Color]([Color(0.331239, 0.865301, 0.996207, 1), Color(1, 0.510256, 0.443869, 1), Color(0, 1, 0, 1), Color(0.998644, 0.888282, 7.70092e-07, 1), Color(0.96124, 0.332391, 1, 1)])
-game_area = NodePath("../GameArea")
-
 [node name="SellPortal" parent="." instance=ExtResource("13_fv88w")]
 position = Vector2(80, 288)
 
@@ -213,3 +206,10 @@ battle_unit_grid = NodePath("../GameArea/BattleUnitGrid")
 [node name="SceneSpawner" type="Node" parent="BattleHandler"]
 script = ExtResource("11_8kk48")
 scene = ExtResource("23_l0cts")
+
+[node name="UnitNavigationDebug" type="Node2D" parent="BattleHandler" node_paths=PackedStringArray("game_area")]
+position = Vector2(160, 32)
+script = ExtResource("8_l0cts")
+color = Color(0.796078, 0.34902, 0.45098, 0.517647)
+path_colors = Array[Color]([Color(0.331239, 0.865301, 0.996207, 1), Color(1, 0.510256, 0.443869, 1), Color(0, 1, 0, 1), Color(0.998644, 0.888282, 7.70092e-07, 1), Color(0.96124, 0.332391, 1, 1)])
+game_area = NodePath("../../GameArea")
