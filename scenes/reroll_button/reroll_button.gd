@@ -4,7 +4,7 @@ extends Button
 @export var player_stats: PlayerStats
 @export var reroll_sound: AudioStream
 
-@onready var h_box_container: HBoxContainer = $HBoxContainer
+@onready var hbox_container: HBoxContainer = $HBoxContainer
 
 
 func _ready() -> void:
@@ -17,9 +17,10 @@ func _on_player_stats_changed() -> void:
 	disabled = not has_enough_gold
 
 	if has_enough_gold:
-		h_box_container.modulate.a = 1.0
+		hbox_container.modulate.a = 1.0
 	else:
-		h_box_container.modulate.a = 0.5
+		hbox_container.modulate.a = 0.5
+
 
 func _on_pressed() -> void:
 	player_stats.gold -= 2

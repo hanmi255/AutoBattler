@@ -29,7 +29,7 @@ func get_random_unit_by_rarity(rarity: UnitStats.Rarity) -> UnitStats:
 
 
 func add_unit_to_pool(unit: UnitStats) -> void:
-	## 将高阶单位分解为低阶单位再添加到池中
+	# 将高阶单位分解为低阶单位再添加到池中
 	var combined_count = unit.get_combined_unit_count()
 	unit = unit.duplicate()
 	unit.tier = 1

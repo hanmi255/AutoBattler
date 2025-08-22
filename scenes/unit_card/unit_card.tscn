@@ -1,37 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://dl36kawnud74k"]
+[gd_scene load_steps=13 format=3 uid="uid://vdsh8er0jfuo"]
 
-[ext_resource type="Script" uid="uid://d0licu6n58ens" path="res://scenes/unit_card/unit_card.gd" id="1_2ee4v"]
-[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="1_cdcni"]
-[ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="2_2yriv"]
-[ext_resource type="Texture2D" uid="uid://cquyqi513aqqe" path="res://assets/sprites/gold.png" id="2_lw7or"]
-[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="3_00nd2"]
-[ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="3_jsq82"]
-[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="4_yqr5c"]
-[ext_resource type="Resource" uid="uid://frvq8s8h77ib" path="res://data/traits/human.tres" id="5_1jfxx"]
-[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="6_rnsru"]
-[ext_resource type="Resource" uid="uid://05wl6hatg0gh" path="res://data/traits/noble.tres" id="7_my3i0"]
-[ext_resource type="AudioStream" uid="uid://y0xw02dhoi4b" path="res://assets/sfx/buy.ogg" id="8_yqr5c"]
+[ext_resource type="Script" uid="uid://bra3fnoskan71" path="res://scenes/unit_card/unit_card.gd" id="1_83v2f"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="1_l8led"]
+[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="2_e66d1"]
+[ext_resource type="Resource" uid="uid://cond60csmn6l4" path="res://data/player/player_stats.tres" id="2_h2015"]
+[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="3_mw3xm"]
+[ext_resource type="Resource" uid="uid://cxt8jraate1vr" path="res://data/units/arthur.tres" id="3_yonpo"]
+[ext_resource type="AudioStream" uid="uid://05sgyew2ynsi" path="res://assets/sfx/buy.ogg" id="4_w1dl3"]
 
-[sub_resource type="Resource" id="Resource_6rxv1"]
-script = ExtResource("3_00nd2")
-name = "Arthur"
-rarity = 2
-gold_cost = 4
-tier = 1
-traits = Array[ExtResource("4_yqr5c")]([ExtResource("5_1jfxx"), ExtResource("6_rnsru"), ExtResource("7_my3i0")])
-pool_count = 5
-skin_coordinates = Vector2i(4, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_tnwt5"]
+[sub_resource type="LabelSettings" id="LabelSettings_lgxvb"]
 line_spacing = 0.0
-font = ExtResource("1_cdcni")
+font = ExtResource("1_l8led")
 font_color = Color(0.6, 0.862745, 1, 0.729412)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qv24o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqgew"]
 resource_local_to_scene = true
 bg_color = Color(0.0705882, 0.290196, 0.180392, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cd18"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cefo1"]
 resource_local_to_scene = true
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 2
@@ -40,12 +26,12 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.0705882, 0.290196, 0.180392, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fd1e3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdfpu"]
 resource_local_to_scene = true
-atlas = ExtResource("3_jsq82")
+atlas = ExtResource("3_mw3xm")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ombhj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clm6g"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="UnitCard" type="Button"]
@@ -53,12 +39,12 @@ custom_minimum_size = Vector2(80, 52)
 offset_right = 8.0
 offset_bottom = 8.0
 focus_mode = 0
-script = ExtResource("1_2ee4v")
-player_stats = ExtResource("2_2yriv")
-unit_stats = SubResource("Resource_6rxv1")
-buy_card_sound = ExtResource("8_yqr5c")
+script = ExtResource("1_83v2f")
+player_stats = ExtResource("2_h2015")
+unit_stats = ExtResource("3_yonpo")
+buy_sound = ExtResource("4_w1dl3")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BackDrop" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,19 +54,19 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0.0823529, 0.12549, 1)
 
-[node name="TraitsLabel" type="Label" parent="BG"]
+[node name="Traits" type="Label" parent="BackDrop"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 5.0
-offset_top = 3.0
+offset_top = 4.0
 offset_right = 45.0
-offset_bottom = 29.0
+offset_bottom = 30.0
 text = "viking
-fighter
-noble"
-label_settings = SubResource("LabelSettings_tnwt5")
+fighter"
+label_settings = SubResource("LabelSettings_lgxvb")
 
-[node name="BottomPanel" type="Panel" parent="."]
+[node name="Bottom" type="Panel" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 1
 anchors_preset = 12
@@ -90,9 +76,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qv24o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqgew")
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Bottom"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,33 +89,34 @@ mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Bottom/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="UnitNameLabel" type="Label" parent="BottomPanel/MarginContainer/HBoxContainer"]
+[node name="UnitName" type="Label" parent="Bottom/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Arthur"
 
-[node name="GoldHBox" type="HBoxContainer" parent="BottomPanel/MarginContainer/HBoxContainer"]
+[node name="GoldContainer" type="HBoxContainer" parent="Bottom/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
-alignment = 1
+alignment = 2
 
-[node name="GoldIcon" type="TextureRect" parent="BottomPanel/MarginContainer/HBoxContainer/GoldHBox"]
+[node name="GoldIcon" type="TextureRect" parent="Bottom/MarginContainer/HBoxContainer/GoldContainer"]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("2_lw7or")
+texture = ExtResource("2_e66d1")
 stretch_mode = 5
 
-[node name="GoldCostLabel" type="Label" parent="BottomPanel/MarginContainer/HBoxContainer/GoldHBox"]
+[node name="GoldCost" type="Label" parent="Bottom/MarginContainer/HBoxContainer/GoldContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 
-[node name="BorderPanel" type="Panel" parent="."]
+[node name="Border" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,9 +124,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2cd18")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cefo1")
 
 [node name="UnitIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -149,11 +137,12 @@ offset_right = 34.0
 offset_bottom = 32.0
 grow_horizontal = 2
 mouse_filter = 2
-texture = SubResource("AtlasTexture_fd1e3")
+texture = SubResource("AtlasTexture_tdfpu")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="EmptyPlaceholder" type="Panel" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -161,7 +150,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ombhj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_clm6g")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

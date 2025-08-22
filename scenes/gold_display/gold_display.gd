@@ -3,7 +3,7 @@ extends HBoxContainer
 
 @export var player_stats: PlayerStats
 
-@onready var gold: Label = $GoldLabel
+@onready var gold: Label = $Gold
 
 
 func _ready() -> void:

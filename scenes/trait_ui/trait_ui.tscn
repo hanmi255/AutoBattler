@@ -1,24 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://7yj6mwn4r6r0"]
+[gd_scene load_steps=7 format=3 uid="uid://c4isp66o7sso5"]
 
-[ext_resource type="Texture2D" uid="uid://cyjdiq3a1mc2v" path="res://assets/sprites/trait_background.png" id="1_6wntd"]
-[ext_resource type="Script" uid="uid://ccg23m2gn3fcf" path="res://scenes/trait_ui/trait_ui.gd" id="1_v8mky"]
-[ext_resource type="Resource" uid="uid://r8rvbwil1ydg" path="res://data/traits/viking.tres" id="2_c4b2r"]
-[ext_resource type="Texture2D" uid="uid://3swx2sliglpe" path="res://assets/sprites/traits/elf.png" id="2_v8mky"]
-[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="3_c4b2r"]
+[ext_resource type="Script" uid="uid://ba1t6124h4kj3" path="res://scenes/trait_ui/trait_ui.gd" id="1_04ft7"]
+[ext_resource type="Texture2D" uid="uid://l1jq47dgo2n1" path="res://assets/sprites/trait_background.png" id="1_8vntc"]
+[ext_resource type="Texture2D" uid="uid://b1aup08or8bao" path="res://assets/sprites/traits/elf.png" id="2_xj1un"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="3_gyayg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_5gna1"]
+[sub_resource type="LabelSettings" id="LabelSettings_dm8vm"]
 shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.627451)
+shadow_color = Color(0, 0, 0, 0.541176)
 
-[sub_resource type="LabelSettings" id="LabelSettings_t7bxl"]
-font = ExtResource("3_c4b2r")
-shadow_color = Color(0, 0, 0, 0.627451)
+[sub_resource type="LabelSettings" id="LabelSettings_ccrvy"]
+font = ExtResource("3_gyayg")
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="TraitUI" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_v8mky")
-trait_data = ExtResource("2_c4b2r")
+script = ExtResource("1_04ft7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,12 +32,12 @@ theme_override_constants/separation = -2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TraitIconBG" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TraitIconBackground" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_6wntd")
+texture = ExtResource("1_8vntc")
 stretch_mode = 5
 
-[node name="TraitIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/TraitIconBG"]
+[node name="TraitIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/TraitIconBackground"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
@@ -54,7 +52,7 @@ offset_right = 12.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_v8mky")
+texture = ExtResource("2_xj1un")
 expand_mode = 1
 stretch_mode = 5
 
@@ -66,7 +64,7 @@ theme_override_constants/separation = -4
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
-label_settings = SubResource("LabelSettings_5gna1")
+label_settings = SubResource("LabelSettings_dm8vm")
 vertical_alignment = 2
 
 [node name="TraitLevelLabels" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -76,7 +74,7 @@ custom_minimum_size = Vector2(28, 16)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.666667, 0.666667, 0.666667, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_c4b2r")
+theme_override_fonts/normal_font = ExtResource("3_gyayg")
 bbcode_enabled = true
 text = "2/4/6"
 scroll_active = false
@@ -84,12 +82,10 @@ scroll_active = false
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
 
 [node name="TraitLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "ranger"
-label_settings = SubResource("LabelSettings_t7bxl")
+label_settings = SubResource("LabelSettings_ccrvy")

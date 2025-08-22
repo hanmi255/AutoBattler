@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://r8rvbwil1ydg"]
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://bkgurfdcihufj"]
 
-[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="1_8n85b"]
-[ext_resource type="Texture2D" uid="uid://dtjs36r3dmsx3" path="res://assets/sprites/traits/viking.png" id="1_dkmjx"]
+[ext_resource type="Script" uid="uid://dsyxdgrby4ar7" path="res://data/traits/trait.gd" id="1_2w4rk"]
+[ext_resource type="Texture2D" uid="uid://cmjp32ur0thqa" path="res://assets/sprites/traits/viking.png" id="1_bdbxe"]
 
 [resource]
-script = ExtResource("1_8n85b")
+script = ExtResource("1_2w4rk")
 name = "Viking"
-icon = ExtResource("1_dkmjx")
+icon = ExtResource("1_bdbxe")
 description = ""
 levels = 2
 unit_requirements = Array[int]([2, 3])
 unit_modifiers = Array[PackedScene]([null, null])
-metadata/_custom_type_script = "uid://o63eqc44k3nx"

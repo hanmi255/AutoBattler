@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq45j4qrhajew"]
+[gd_scene load_steps=4 format=3 uid="uid://doqn5dm1pw1le"]
 
-[ext_resource type="Script" uid="uid://j14mhaq40u50" path="res://scenes/team_size_ui/team_size_ui.gd" id="1_r16ec"]
-[ext_resource type="Texture2D" uid="uid://dt5q0iv5iy4mk" path="res://assets/sprites/warning.png" id="1_t0pwq"]
+[ext_resource type="Script" uid="uid://c2o0ac3jlgjxh" path="res://scenes/team_size_ui/team_size_ui.gd" id="1_la7y1"]
+[ext_resource type="Texture2D" uid="uid://ckect222m1bin" path="res://assets/sprites/warning.png" id="1_xpphg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r16ec"]
+[sub_resource type="LabelSettings" id="LabelSettings_le2ba"]
 shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.627451)
+shadow_color = Color(0, 0, 0, 0.705882)
 
 [node name="TeamSizeUI" type="PanelContainer"]
 offset_right = 46.0
 offset_bottom = 24.0
-script = ExtResource("1_r16ec")
+script = ExtResource("1_la7y1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -27,12 +27,12 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_mode = 2
 text = "10/10"
-label_settings = SubResource("LabelSettings_r16ec")
+label_settings = SubResource("LabelSettings_le2ba")
 horizontal_alignment = 1
 
 [node name="TooManyUnitsIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("1_t0pwq")
+texture = ExtResource("1_xpphg")
 stretch_mode = 5

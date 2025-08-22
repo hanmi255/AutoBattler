@@ -1,30 +1,32 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs62a6fkeay7b"]
+[gd_scene load_steps=11 format=3 uid="uid://cwttodcy78nwf"]
 
-[ext_resource type="StyleBox" uid="uid://5qdjlavnhcfk" path="res://assets/theme/shop_button_hover.tres" id="1_3rb6o"]
-[ext_resource type="StyleBox" uid="uid://mgcn15cjl08u" path="res://assets/theme/shop_button_pressed.tres" id="2_w6h38"]
-[ext_resource type="StyleBox" uid="uid://c3ias4kwkl52j" path="res://assets/theme/shop_button_normal.tres" id="3_u4y6s"]
-[ext_resource type="FontFile" uid="uid://bi62bg0xhko36" path="res://assets/font/m5x7.ttf" id="4_rk4mc"]
-[ext_resource type="Script" uid="uid://cmyxoa1wek0ek" path="res://scenes/xp_button/xp_button.gd" id="4_w6h38"]
-[ext_resource type="Texture2D" uid="uid://cquyqi513aqqe" path="res://assets/sprites/gold.png" id="5_e0e37"]
-[ext_resource type="Resource" uid="uid://83gxhusc82ev" path="res://data/player/player_stats.tres" id="5_u4y6s"]
-[ext_resource type="AudioStream" uid="uid://1n87kpef6k5" path="res://assets/sfx/xp_buy.ogg" id="6_rk4mc"]
+[ext_resource type="StyleBox" uid="uid://5qdjlavnhcfk" path="res://assets/theme/shop_button_hover.tres" id="1_gmqxm"]
+[ext_resource type="StyleBox" uid="uid://mgcn15cjl08u" path="res://assets/theme/shop_button_pressed.tres" id="2_msq74"]
+[ext_resource type="StyleBox" uid="uid://c3ias4kwkl52j" path="res://assets/theme/shop_button_normal.tres" id="3_ydmxm"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://assets/font/m5x7.ttf" id="4_dbqjr"]
+[ext_resource type="Script" uid="uid://bfnn18qhmyqrk" path="res://scenes/xp_button/xp_button.gd" id="4_w0u66"]
+[ext_resource type="Resource" uid="uid://cond60csmn6l4" path="res://data/player/player_stats.tres" id="5_74p0o"]
+[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="5_s8bds"]
+[ext_resource type="AudioStream" uid="uid://q4db8jmbfdk7" path="res://assets/sfx/xp_buy.ogg" id="6_4wjby"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ayovo"]
-font = ExtResource("4_rk4mc")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ip0rb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ia37v"]
+font = ExtResource("4_dbqjr")
 shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.627451)
+shadow_color = Color(0, 0, 0, 0.345098)
 
 [node name="XPButton" type="Button"]
 custom_minimum_size = Vector2(30, 30)
 offset_right = 8.0
 offset_bottom = 8.0
-focus_mode = 0
-theme_override_styles/hover = ExtResource("1_3rb6o")
-theme_override_styles/pressed = ExtResource("2_w6h38")
-theme_override_styles/normal = ExtResource("3_u4y6s")
-script = ExtResource("4_w6h38")
-player_stats = ExtResource("5_u4y6s")
-buy_xp_sound = ExtResource("6_rk4mc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ip0rb")
+theme_override_styles/hover = ExtResource("1_gmqxm")
+theme_override_styles/pressed = ExtResource("2_msq74")
+theme_override_styles/normal = ExtResource("3_ydmxm")
+script = ExtResource("4_w0u66")
+player_stats = ExtResource("5_74p0o")
+xp_sound = ExtResource("6_4wjby")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -38,7 +40,7 @@ theme_override_constants/separation = 0
 [node name="XPLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "+XP"
-label_settings = SubResource("LabelSettings_ayovo")
+label_settings = SubResource("LabelSettings_ia37v")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -49,13 +51,13 @@ alignment = 1
 [node name="GoldLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "4"
-label_settings = SubResource("LabelSettings_ayovo")
+label_settings = SubResource("LabelSettings_ia37v")
 horizontal_alignment = 1
 
 [node name="GoldIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("5_e0e37")
+texture = ExtResource("5_s8bds")
 stretch_mode = 5
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

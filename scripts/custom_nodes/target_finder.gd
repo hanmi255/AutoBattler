@@ -22,12 +22,12 @@ func find_target() -> void:
 	var opposing_group: String = UnitStats.TARGET[actor.stats.team]
 	var all_targets := actor.get_tree().get_nodes_in_group(opposing_group)
 	var distances := all_targets.map(
-		func(target_candidate: BattleUnit):
+		func(target_candidate: BattleUnit) -> float:
 			return actor.global_position.distance_squared_to(target_candidate.global_position)
 	)
+	var idx := distances.find(distances.min())
 
-	var index := distances.find(distances.min())
-	target = all_targets[index]
+	target = all_targets[idx]
 
 
 func has_target_in_range() -> bool:

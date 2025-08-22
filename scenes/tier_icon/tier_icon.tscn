@@ -1,29 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsmqoitcfppu0"]
+[gd_scene load_steps=3 format=3 uid="uid://unne35x1mlsa"]
 
-[ext_resource type="Texture2D" uid="uid://d3huiur0jcm8b" path="res://assets/sprites/level1.png" id="1_do4qs"]
-[ext_resource type="Script" uid="uid://l0vej3yg5vlw" path="res://scenes/tier_icon/tier_icon.gd" id="2_rh1px"]
-[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="3_yymux"]
-[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="4_pwnvi"]
-[ext_resource type="Resource" uid="uid://r8rvbwil1ydg" path="res://data/traits/viking.tres" id="5_imfy1"]
-[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="6_8bwn0"]
-
-[sub_resource type="Resource" id="Resource_lhgay"]
-script = ExtResource("3_yymux")
-name = "Bjorn"
-rarity = 0
-gold_cost = 1
-tier = 1
-traits = Array[ExtResource("4_pwnvi")]([ExtResource("5_imfy1"), ExtResource("6_8bwn0")])
-pool_count = 5
-skin_coordinates = Vector2i(1, 3)
-team = 0
+[ext_resource type="Texture2D" uid="uid://cj1cl8jdui60n" path="res://assets/sprites/level1.png" id="1_tnhe0"]
+[ext_resource type="Script" uid="uid://dec5nal4vq6rb" path="res://scenes/tier_icon/tier_icon.gd" id="2_nv12i"]
 
 [node name="TierIcon" type="TextureRect"]
-z_index = 1
 custom_minimum_size = Vector2(10, 10)
 offset_right = 10.0
 offset_bottom = 10.0
-texture = ExtResource("1_do4qs")
+texture = ExtResource("1_tnhe0")
 stretch_mode = 5
-script = ExtResource("2_rh1px")
-stats = SubResource("Resource_lhgay")
+script = ExtResource("2_nv12i")

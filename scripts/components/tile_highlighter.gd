@@ -9,7 +9,7 @@ extends Node
 @onready var source_id := play_area.tile_set.get_source_id(0)
 
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if not enabled:
 		return
 
@@ -22,8 +22,8 @@ func _process(_delta):
 	_update_tile(selected_tile)
 
 
-func _set_enabled(value: bool) -> void:
-	enabled = value
+func _set_enabled(new_value: bool) -> void:
+	enabled = new_value
 
 	if not enabled and play_area:
 		highlight_layer.clear()

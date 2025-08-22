@@ -3,7 +3,7 @@ extends VBoxContainer
 
 @export var player_stats: PlayerStats
 
-@onready var xp_progress: ProgressBar = $XPProgress
+@onready var progress_bar: ProgressBar = %ProgressBar
 @onready var xp_label: Label = %XPLabel
 @onready var level_label: Label = %LevelLabel
 
@@ -14,20 +14,20 @@ func _ready() -> void:
 
 
 func _on_player_stats_changed() -> void:
-	if player_stats.level < PlayerStats.MAX_LEVEL:
-		_set_xp_progress_value()
+	if not player_stats.is_max_level():
+		_set_xp_bar_values()
 	else:
-		_set_max_level_value()
+		_set_max_level_values()
 
-	level_label.text = "Lv: %s" % player_stats.level
+	level_label.text = "lvl: %s" % player_stats.level
 
 
-func _set_xp_progress_value() -> void:
+func _set_max_level_values() -> void:
+	xp_label.text = "MAX"
+	progress_bar.value = 100
+
+
+func _set_xp_bar_values() -> void:
 	var xp_requirement := player_stats.get_current_xp_requirement()
 	xp_label.text = "%s/%s" % [player_stats.xp, xp_requirement]
-	xp_progress.value = (player_stats.xp / float(xp_requirement)) * 100
-
-
-func _set_max_level_value() -> void:
-	xp_progress.value = 100
-	xp_label.text = "Max Level"
+	progress_bar.value = (player_stats.xp / float(xp_requirement)) * 100

@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpumo1pbjkiwx"]
+[gd_scene load_steps=3 format=3 uid="uid://bcylmwymt6b3b"]
 
-[ext_resource type="Script" uid="uid://d1u5q1dcohvlx" path="res://scenes/start_battle_button/start_battle_button.gd" id="1_tny1x"]
-[ext_resource type="Texture2D" uid="uid://cgxli3j4op7t2" path="res://assets/sprites/start_battle.png" id="2_le7hg"]
+[ext_resource type="Script" uid="uid://c7ty3687ll0bc" path="res://scenes/start_battle_button/start_battle_button.gd" id="1_le7hg"]
+[ext_resource type="Texture2D" uid="uid://573xtepvubod" path="res://assets/sprites/start_battle.png" id="1_tny1x"]
 
 [node name="StartBattleButton" type="Button"]
 custom_minimum_size = Vector2(32, 24)
+offset_right = 8.0
 offset_bottom = 8.0
 focus_mode = 0
-script = ExtResource("1_tny1x")
+script = ExtResource("1_le7hg")
 
 [node name="Icon" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(20, 20)
@@ -23,6 +24,6 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_le7hg")
+texture = ExtResource("1_tny1x")
 expand_mode = 1
 stretch_mode = 5

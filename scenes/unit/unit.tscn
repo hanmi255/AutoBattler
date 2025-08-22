@@ -1,65 +1,69 @@
-[gd_scene load_steps=13 format=3 uid="uid://o533q7qmby58"]
+[gd_scene load_steps=14 format=3 uid="uid://dctbclookhob7"]
 
-[ext_resource type="Texture2D" uid="uid://v5ttpwevwtd4" path="res://assets/sprites/rogues.png" id="1_fmv3f"]
-[ext_resource type="Script" uid="uid://dfo41kndexvdm" path="res://scenes/unit/unit.gd" id="1_vh40f"]
-[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_0wuuu"]
-[ext_resource type="Script" uid="uid://cdi77ix4jno1r" path="res://scripts/components/drag_and_drop.gd" id="3_vh40f"]
-[ext_resource type="PackedScene" uid="uid://bsmqoitcfppu0" path="res://scenes/tier_icon/tier_icon.tscn" id="4_0wuuu"]
-[ext_resource type="Script" uid="uid://co7xggycwun5m" path="res://scripts/components/packed_sprite2d.gd" id="4_5im7a"]
-[ext_resource type="PackedScene" uid="uid://bntiqn3ag20t6" path="res://scenes/health_bar/health_bar.tscn" id="4_l0n34"]
-[ext_resource type="PackedScene" uid="uid://1orv1jkyuru" path="res://scenes/mana_bar/mana_bar.tscn" id="5_5im7a"]
-[ext_resource type="Script" uid="uid://b745sxyiccb8i" path="res://scripts/components/velocity_based_rotation.gd" id="5_vgvef"]
-[ext_resource type="Script" uid="uid://bf4673qa8ama1" path="res://scripts/components/outline_highlighter.gd" id="7_w7udy"]
-[ext_resource type="Script" uid="uid://dvm7nq4wr1s88" path="res://scripts/custom_nodes/unit_anim.gd" id="8_w7udy"]
+[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="1_6prxo"]
+[ext_resource type="Script" uid="uid://ieab06tk83h4" path="res://scenes/unit/unit.gd" id="1_hvsd5"]
+[ext_resource type="Resource" uid="uid://dyqvoxv3vg6hp" path="res://data/units/units/bjorn.tres" id="2_gqc60"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://assets/shaders/2d_outline_shader.tres" id="3_7sojm"]
+[ext_resource type="Script" uid="uid://d322rsxkkib3n" path="res://scripts/components/drag_and_drop.gd" id="4_4lsat"]
+[ext_resource type="PackedScene" uid="uid://di1627tggvh6r" path="res://scenes/health_bar/health_bar.tscn" id="5_5im7a"]
+[ext_resource type="Script" uid="uid://bpfvys3yg0516" path="res://scripts/components/packed_sprite2d.gd" id="5_7jhsn"]
+[ext_resource type="Script" uid="uid://82ua7jos4rf2" path="res://scripts/components/velocity_based_rotation.gd" id="5_rio0o"]
+[ext_resource type="PackedScene" uid="uid://unne35x1mlsa" path="res://scenes/tier_icon/tier_icon.tscn" id="5_yunqe"]
+[ext_resource type="PackedScene" uid="uid://c7pf7qph33dgb" path="res://scenes/mana_bar/mana_bar.tscn" id="6_7jhsn"]
+[ext_resource type="Script" uid="uid://ccks8se2fxj6f" path="res://scripts/components/outline_highlighter.gd" id="7_w1ko1"]
+[ext_resource type="Script" uid="uid://b40qonitqky5l" path="res://scripts/custom_nodes/unit_animations.gd" id="9_tsr1y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmv3f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpqbl"]
 size = Vector2(36, 36)
 
 [node name="Unit" type="Area2D" groups=["units"]]
-script = ExtResource("1_vh40f")
+script = ExtResource("1_hvsd5")
+stats = ExtResource("2_gqc60")
 metadata/_edit_group_ = true
 
 [node name="Visuals" type="CanvasGroup" parent="."]
-material = ExtResource("3_0wuuu")
+material = ExtResource("3_7sojm")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
-unique_name_in_owner = true
 position = Vector2(16, 8)
-texture = ExtResource("1_fmv3f")
+texture = ExtResource("1_6prxo")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-script = ExtResource("4_5im7a")
+region_rect = Rect2(32, 96, 32, 32)
+script = ExtResource("5_7jhsn")
+coordinates = Vector2i(1, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 8)
-scale = Vector2(0.903, 1)
-shape = SubResource("RectangleShape2D_fmv3f")
+shape = SubResource("RectangleShape2D_wpqbl")
 
-[node name="HealthBar" parent="." instance=ExtResource("4_l0n34")]
+[node name="HealthBar" parent="." instance=ExtResource("5_5im7a")]
 
-[node name="ManaBar" parent="." instance=ExtResource("5_5im7a")]
+[node name="ManaBar" parent="." instance=ExtResource("6_7jhsn")]
 
-[node name="TierIcon" parent="." instance=ExtResource("4_0wuuu")]
+[node name="TierIcon" parent="." instance=ExtResource("5_yunqe")]
+z_index = 1
 offset_top = -13.0
 offset_bottom = -3.0
+stats = ExtResource("2_gqc60")
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("3_vh40f")
+script = ExtResource("4_4lsat")
 target = NodePath("..")
 
 [node name="VelocityBasedRotation" type="Node" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("5_vgvef")
+script = ExtResource("5_rio0o")
 target = NodePath("../Visuals/Skin")
-lerp_seconds = 0.5
+lerp_seconds = 0.3
+max_rotation_degrees = 30
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
-script = ExtResource("7_w7udy")
+script = ExtResource("7_w1ko1")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 2
 
-[node name="UnitAnim" type="Node" parent="." node_paths=PackedStringArray("unit")]
-script = ExtResource("8_w7udy")
+[node name="UnitAnimations" type="Node" parent="." node_paths=PackedStringArray("unit")]
+script = ExtResource("9_tsr1y")
 unit = NodePath("..")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

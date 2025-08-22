@@ -1,7 +1,7 @@
 class_name PlayerStats
 extends Resource
 
-const MAX_LEVEL := 10
+const MAX_LEVEL := 10 # 最大等级
 const XP_REQUIREMENTS := {
 	1: 0,
 	2: 2,
@@ -13,8 +13,7 @@ const XP_REQUIREMENTS := {
 	8: 48,
 	9: 76,
 	10: 76
-}
-
+} # 等级对应的XP需求
 const ROLL_RARITIES := {
 	1: [UnitStats.Rarity.COMMON],
 	2: [UnitStats.Rarity.COMMON],
@@ -26,8 +25,7 @@ const ROLL_RARITIES := {
 	8: [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
 	9: [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
 	10: [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
-}
-
+} # 抽卡概率
 const ROLL_CHANCES := {
 	1: [1],
 	2: [1],
@@ -39,23 +37,29 @@ const ROLL_CHANCES := {
 	8: [2.5, 3.75, 3.45, 0.3],
 	9: [1.75, 2.75, 4.5, 1.0],
 	10: [1.0, 2.0, 4.5, 2.5],
-}
+} # 抽卡权重
 
 @export_range(0, 99) var gold: int: set = _set_gold
 @export_range(0, 99) var xp: int: set = _set_xp
-@export_range(1, 10) var level: int = 1: set = _set_level
+@export_range(1, MAX_LEVEL) var level: int: set = _set_level
 
 
 func get_random_rarity_for_level() -> UnitStats.Rarity:
 	var rng = RandomNumberGenerator.new()
 	var array: Array = ROLL_RARITIES[level]
 	var weights: PackedFloat32Array = PackedFloat32Array(ROLL_CHANCES[level])
+
 	return array[rng.rand_weighted(weights)]
 
 
 func get_current_xp_requirement() -> int:
-	var next_level = clampi(level + 1, 1, 10)
+	var next_level = clampi(level + 1, 1, MAX_LEVEL)
 	return XP_REQUIREMENTS[next_level]
+
+
+func is_max_level() -> bool:
+	return level == MAX_LEVEL
+
 
 func _set_gold(value: int) -> void:
 	gold = value
@@ -66,13 +70,12 @@ func _set_xp(value: int) -> void:
 	xp = value
 	emit_changed()
 
-	## 达到最大等级
-	if level == 10:
+	if is_max_level():
 		return
-	
+
 	var xp_requirement: int = get_current_xp_requirement()
-	
-	while level < 10 and xp >= xp_requirement:
+
+	while level < MAX_LEVEL and xp >= xp_requirement:
 		level += 1
 		xp -= xp_requirement
 		xp_requirement = get_current_xp_requirement()

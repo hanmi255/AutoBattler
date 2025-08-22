@@ -15,6 +15,6 @@ func _ready() -> void:
 
 
 func _update() -> void:
-	var units_used = arena_grid.get_all_units().size()
+	var units_used := arena_grid.get_all_units().size()
 	unit_counter.text = "%s/%s" % [units_used, player_stats.level]
 	too_many_units_icon.visible = units_used > player_stats.level

@@ -6,91 +6,85 @@ extends Node
 @export var unit_place_sound: AudioStream
 
 
-func _ready():
+func _ready() -> void:
 	var units := get_tree().get_nodes_in_group("units")
-	for unit in units:
+	for unit: Unit in units:
 		setup_unit(unit)
 
 
-func setup_unit(unit: Unit):
+func setup_unit(unit: Unit) -> void:
 	unit.drag_and_drop.drag_started.connect(_on_unit_drag_started.bind(unit))
 	unit.drag_and_drop.drag_canceled.connect(_on_unit_drag_canceled.bind(unit))
 	unit.drag_and_drop.dropped.connect(_on_unit_dropped.bind(unit))
 
 
-func _set_highlight(value: bool) -> void:
+func _set_highlighters(enabled: bool) -> void:
 	for play_area: PlayArea in play_areas:
-		play_area.tile_highlighter.enabled = value
+		play_area.tile_highlighter.enabled = enabled
 
 
-func _get_play_area_for_pos(global: Vector2) -> int:
-	var dropped_area_index = -1
+func _get_play_area_for_position(global: Vector2) -> int:
+	var dropped_area_index := -1
 
 	for i in play_areas.size():
-		var tile = play_areas[i].get_tile_from_global(global)
+		var tile := play_areas[i].get_tile_from_global(global)
 		if play_areas[i].is_tile_in_bounds(tile):
 			dropped_area_index = i
-			break
 
 	return dropped_area_index
 
 
-func _reset_unit_to_start_pos(unit: Unit, start_pos: Vector2):
-	var i := _get_play_area_for_pos(start_pos)
-	var tile := play_areas[i].get_tile_from_global(start_pos)
+func _reset_unit_to_starting_position(starting_position: Vector2, unit: Unit) -> void:
+	var i := _get_play_area_for_position(starting_position)
+	var tile := play_areas[i].get_tile_from_global(starting_position)
 
-	unit.reset_pos_after_dragging(start_pos)
-	play_areas[i].unit_grid.add_unit_to_tile(unit, tile)
+	unit.reset_after_dragging(starting_position)
+	play_areas[i].unit_grid.add_unit(tile, unit)
 	SFXPlayer.play(unit_place_sound)
 
 
-func _move_unit(unit: Unit, play_area: PlayArea, tile: Vector2i):
-	play_area.unit_grid.add_unit_to_tile(unit, tile)
-	
-	## 减去0.5像素大小，使得单元格中心与格子中心重合
+func _move_unit(unit: Unit, play_area: PlayArea, tile: Vector2i) -> void:
+	play_area.unit_grid.add_unit(tile, unit)
 	unit.global_position = play_area.get_global_from_tile(tile) - Arena.HALF_CELL_SIZE
 	unit.reparent(play_area.unit_grid)
 
 
-func _on_unit_drag_started(unit: Unit):
-	_set_highlight(true)
+func _on_unit_drag_started(unit: Unit) -> void:
+	_set_highlighters(true)
 
-	var i := _get_play_area_for_pos(unit.global_position)
+	var i := _get_play_area_for_position(unit.global_position)
 	if i > -1:
 		var tile := play_areas[i].get_tile_from_global(unit.global_position)
-		play_areas[i].unit_grid.remove_unit_from_tile(tile)
+		play_areas[i].unit_grid.remove_unit(tile)
 
 
-func _on_unit_drag_canceled(start_pos: Vector2, unit: Unit) -> void:
-	_set_highlight(false)
-	_reset_unit_to_start_pos(unit, start_pos)
+func _on_unit_drag_canceled(starting_position: Vector2, unit: Unit) -> void:
+	_set_highlighters(false)
+	_reset_unit_to_starting_position(starting_position, unit)
 
 
-func _on_unit_dropped(start_pos: Vector2, unit: Unit) -> void:
-	_set_highlight(false)
+func _on_unit_dropped(starting_position: Vector2, unit: Unit) -> void:
+	_set_highlighters(false)
 
-	var old_area_index := _get_play_area_for_pos(start_pos)
-	var new_area_index := _get_play_area_for_pos(unit.get_global_mouse_position())
+	var old_area_index := _get_play_area_for_position(starting_position)
+	var drop_area_index := _get_play_area_for_position(unit.get_global_mouse_position())
+	var invalid_drop := drop_area_index == -1
+	var bench_to_game := old_area_index == 1 and drop_area_index == 0
 
-	var invalid_drop := new_area_index == -1
-	var bench_to_game := old_area_index == 1 and new_area_index == 0
-	var is_battling := game_state.current_phase == GameState.Phase.BATTLE
-
-	if invalid_drop or (bench_to_game and is_battling):
-		_reset_unit_to_start_pos(unit, start_pos)
+	if invalid_drop or (bench_to_game and game_state.is_battling()):
+		_reset_unit_to_starting_position(starting_position, unit)
 		return
 
 	var old_area := play_areas[old_area_index]
-	var old_tile := old_area.get_tile_from_global(start_pos)
-	var new_area := play_areas[new_area_index]
+	var old_tile := old_area.get_tile_from_global(starting_position)
+	var new_area := play_areas[drop_area_index]
 	var new_tile := new_area.get_hovered_tile()
 
-	## 拖拽到非空闲网格时交换位置
+	# 交换单位
 	if new_area.unit_grid.is_tile_occupied(new_tile):
 		var old_unit: Unit = new_area.unit_grid.units[new_tile]
-		new_area.unit_grid.remove_unit_from_tile(new_tile)
+		new_area.unit_grid.remove_unit(new_tile)
 		_move_unit(old_unit, old_area, old_tile)
 
-	## 否则移动单元
 	_move_unit(unit, new_area, new_tile)
 	SFXPlayer.play(unit_place_sound)

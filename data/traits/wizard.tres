@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dqfmcpnoabva"]
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://bo07jrfhvssep"]
 
-[ext_resource type="Texture2D" uid="uid://dk4otkfv6hfhs" path="res://assets/sprites/traits/wizard.png" id="1_517ck"]
-[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="1_yd438"]
+[ext_resource type="Texture2D" uid="uid://bqakm8biv7pa" path="res://assets/sprites/traits/wizard.png" id="1_qlj45"]
+[ext_resource type="Script" uid="uid://dsyxdgrby4ar7" path="res://data/traits/trait.gd" id="1_r8scr"]
 
 [resource]
-script = ExtResource("1_yd438")
+script = ExtResource("1_r8scr")
 name = "Wizard"
-icon = ExtResource("1_517ck")
+icon = ExtResource("1_qlj45")
 description = ""
 levels = 3
 unit_requirements = Array[int]([2, 4, 6])
 unit_modifiers = Array[PackedScene]([null, null, null])
-metadata/_custom_type_script = "uid://o63eqc44k3nx"

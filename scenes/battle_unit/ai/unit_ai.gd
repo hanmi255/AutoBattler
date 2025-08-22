@@ -1,11 +1,12 @@
 class_name UnitAI
 extends Node
 
+@export var debug_label: Label
 @export var enabled: bool: set = _set_enabled
 @export var actor: BattleUnit
-@export var debug_label: Label
 
 var fsm: FiniteStateMachine
+
 
 func _ready() -> void:
 	fsm = FiniteStateMachine.new()
@@ -17,39 +18,27 @@ func _ready() -> void:
 	)
 
 
-func _physics_process(delta: float) -> void:
-	if not enabled or not actor or not is_instance_valid(actor):
-		return
+func _set_enabled(value: bool) -> void:
+	enabled = value
 
-	if not fsm or not fsm.state:
+	if enabled:
+		_start_chasing()
+	else:
+		fsm.change_state(null)
+
+
+func _physics_process(delta: float) -> void:
+	if not enabled:
 		return
 
 	fsm.state.physics_process(delta)
 
 
 func _process(delta: float) -> void:
-	if not enabled or not actor or not is_instance_valid(actor):
-		return
-
-	if not fsm or not fsm.state:
+	if not enabled:
 		return
 
 	fsm.state.process(delta)
-
-
-func _set_enabled(value: bool) -> void:
-	enabled = value
-
-	if enabled:
-		# 检查actor是否仍然有效
-		if not actor or not is_instance_valid(actor):
-			enabled = false
-			return
-		_start_chasing()
-	else:
-		# 清理当前状态
-		if fsm and fsm.state:
-			fsm.change_state(null)
 
 
 func _start_chasing() -> void:
@@ -63,12 +52,12 @@ func _start_chasing() -> void:
 
 func _on_chase_state_stuck() -> void:
 	var stuck_state := StuckState.new(actor)
-	stuck_state.time_out.connect(_start_chasing, CONNECT_ONE_SHOT)
+	stuck_state.timeout.connect(_start_chasing, CONNECT_ONE_SHOT)
 	fsm.change_state(stuck_state)
 
 
 func _on_chase_state_target_reached(target: BattleUnit) -> void:
-	var auto_attack_state := AutoAttackState.new(actor, target)
-	auto_attack_state.should_chase_new_target.connect(_start_chasing, CONNECT_ONE_SHOT)
-	auto_attack_state.target_died.connect(_start_chasing, CONNECT_ONE_SHOT)
-	fsm.change_state(auto_attack_state)
+	var aa_state := AutoAttackState.new(actor, target)
+	aa_state.target_died.connect(_start_chasing, CONNECT_ONE_SHOT)
+	aa_state.target_left_range.connect(_start_chasing, CONNECT_ONE_SHOT)
+	fsm.change_state(aa_state)

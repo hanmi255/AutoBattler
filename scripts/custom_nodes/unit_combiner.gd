@@ -12,7 +12,7 @@ func _ready() -> void:
 	buffer_timer.timeout.connect(_on_buffer_timer_timeout)
 
 
-func queue_unit_combiner_update() -> void:
+func queue_unit_combination_update() -> void:
 	buffer_timer.start()
 
 
@@ -20,7 +20,7 @@ func _update_unit_combinations(tier: int) -> void:
 	var groups := _group_units_in_tier_by_name(tier)
 	var triplets: Array[Array] = _get_triplets_for_groups(groups)
 
-	## 没有可以合并的单元就直接返回
+	# 没有可以组合的单位，跳过
 	if triplets.is_empty():
 		_on_units_combined(tier)
 		return
@@ -29,17 +29,17 @@ func _update_unit_combinations(tier: int) -> void:
 
 	for combination in triplets:
 		tween.tween_callback(_combine_units.bind(combination[0], combination[1], combination[2]))
-		tween.tween_interval(UnitAnim.COMBINE_ANIM_LENGTH)
+		tween.tween_interval(UnitAnimations.COMBINE_ANIM_LENGTH)
 
 	tween.finished.connect(_on_units_combined.bind(tier), CONNECT_ONE_SHOT)
 
 
-func _combine_units(unit1: Unit, unit2: Unit, unit3: Unit):
+func _combine_units(unit1: Unit, unit2: Unit, unit3: Unit) -> void:
 	unit1.stats.tier += 1
 	unit2.remove_from_group("units")
 	unit3.remove_from_group("units")
-	unit2.anim.play_combine_anim(unit1.global_position + Arena.QUARTER_CELL_SIZE)
-	unit3.anim.play_combine_anim(unit1.global_position + Arena.QUARTER_CELL_SIZE)
+	unit2.animations.play_combine_animation(unit1.global_position + Arena.QUARTER_CELL_SIZE)
+	unit3.animations.play_combine_animation(unit1.global_position + Arena.QUARTER_CELL_SIZE)
 	SFXPlayer.play(combine_sound)
 
 
@@ -64,7 +64,6 @@ func _group_units_in_tier_by_name(tier: int) -> Dictionary:
 		func(unit: Unit):
 			return unit.stats.tier == tier
 	)
-
 	var unit_groups := {}
 
 	for unit: Unit in filtered_units:
@@ -104,7 +103,7 @@ func _get_triplets_for_groups(unit_groups: Dictionary) -> Array[Array]:
 
 func _on_buffer_timer_timeout() -> void:
 	queued_updates += 1
-
+	
 	if not tween or not tween.is_running():
 		_update_unit_combinations(1)
 
@@ -114,6 +113,5 @@ func _on_units_combined(tier: int) -> void:
 		_update_unit_combinations(2)
 	else:
 		queued_updates -= 1
-
 		if queued_updates >= 1:
 			_update_unit_combinations(1)

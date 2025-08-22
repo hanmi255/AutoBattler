@@ -1,5 +1,5 @@
 class_name FiniteStateMachine
-extends Node
+extends RefCounted
 
 signal state_changed(new_state: State)
 
@@ -7,10 +7,10 @@ var state: State
 
 
 func change_state(new_state: State) -> void:
-	if state != null:
+	if state:
 		state.exit()
 
-	if new_state != null:
+	if new_state:
 		new_state.enter()
 
 	state = new_state

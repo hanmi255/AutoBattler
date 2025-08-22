@@ -9,8 +9,8 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(hit_box: Area2D) -> void:
-	if not hit_box is HitBox:
+func _on_area_entered(hitbox: Area2D) -> void:
+	if not hitbox is HitBox:
 		return
 
-	hurt.emit((hit_box as HitBox).damage)
+	hurt.emit((hitbox as HitBox).damage)

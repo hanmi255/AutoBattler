@@ -2,6 +2,7 @@
 class_name PackedSprite2D
 extends Sprite2D
 
+
 @export var coordinates: Vector2i:
 	set(value):
 		coordinates = value

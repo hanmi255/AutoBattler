@@ -1,27 +1,28 @@
-[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://bsfsh3u5jpced"]
+[gd_resource type="Resource" script_class="UnitStats" load_steps=6 format=3 uid="uid://cxt8jraate1vr"]
 
-[ext_resource type="Script" uid="uid://qmr5xrbc3x0g" path="res://data/units/unit_stats.gd" id="1_b6a51"]
-[ext_resource type="Script" uid="uid://o63eqc44k3nx" path="res://data/traits/trait.gd" id="2_0x1t0"]
-[ext_resource type="Resource" uid="uid://b7cltonugr25t" path="res://data/traits/fighter.tres" id="3_vyn1g"]
-[ext_resource type="Resource" uid="uid://05wl6hatg0gh" path="res://data/traits/noble.tres" id="4_g8o77"]
+[ext_resource type="PackedScene" uid="uid://6xbfap3o0lej" path="res://scenes/_effects/attack_smear_effect.tscn" id="1_bi1tr"]
+[ext_resource type="Script" uid="uid://bp143y4igd7sa" path="res://data/units/unit_stats.gd" id="1_dy7fj"]
+[ext_resource type="Script" uid="uid://dsyxdgrby4ar7" path="res://data/traits/trait.gd" id="2_4s8jw"]
+[ext_resource type="Resource" uid="uid://bekcuvjro6nqe" path="res://data/traits/fighter.tres" id="3_5nwna"]
+[ext_resource type="Resource" uid="uid://clx1gl1vn35sq" path="res://data/traits/noble.tres" id="4_oqw0g"]
 
 [resource]
-script = ExtResource("1_b6a51")
+script = ExtResource("1_dy7fj")
 name = "Arthur"
-rarity = 3
-gold_cost = 5
+rarity = 2
+gold_cost = 4
 tier = 1
-traits = Array[ExtResource("2_0x1t0")]([ExtResource("4_g8o77"), ExtResource("3_vyn1g")])
+traits = Array[ExtResource("2_4s8jw")]([ExtResource("3_5nwna"), ExtResource("4_oqw0g")])
 pool_count = 5
 skin_coordinates = Vector2i(4, 2)
 team = 0
-max_health = Array[int]([90, 100, 110])
-max_mana = 60
-starting_mana = 15
-attack_damage = Array[int]([25, 30, 38])
+max_health = Array[int]([])
+max_mana = 0
+starting_mana = 0
+attack_damage = Array[int]([])
 ability_power = 0
-attack_speed = 0.65
-armor = 5
-magic_resist = 2
-attack_range = 1
-metadata/_custom_type_script = "uid://qmr5xrbc3x0g"
+attack_speed = 0.0
+armor = 0
+magic_resist = 0
+attack_range = 0
+melee_attack = ExtResource("1_bi1tr")

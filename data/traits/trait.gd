@@ -1,7 +1,7 @@
 class_name Trait
 extends Resource
 
-const HIGHLIGHT_COLOR_CODE := "fafa82"
+const HIGHLIGHT_COLOR_CODE := "fafa82" # 高亮颜色
 
 @export var name: String
 @export var icon: Texture
@@ -20,16 +20,16 @@ func get_unique_unit_count(units: Array[Unit]) -> int:
 
 	var unique_units: Array[String] = []
 
-	for unit in units:
+	for unit: Unit in units:
 		if not unique_units.has(unit.stats.name):
 			unique_units.append(unit.stats.name)
 
 	return unique_units.size()
 
 
-func get_levels_BBcode(unit_count: int) -> String:
+func get_levels_bbcode(unit_count: int) -> String:
 	var code: PackedStringArray = []
-	var reached_level = unit_requirements.filter(
+	var reached_level := unit_requirements.filter(
 		func(requirement: int):
 			return unit_count >= requirement
 	)

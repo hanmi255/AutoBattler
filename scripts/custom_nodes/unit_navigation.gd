@@ -11,7 +11,7 @@ var full_grid_region: Rect2i
 func initialize(grid: UnitGrid, area: PlayArea) -> void:
 	battle_grid = grid
 	game_area = area
-	
+
 	full_grid_region = Rect2i(Vector2i.ZERO, battle_grid.size)
 	astar_grid = AStarGrid2D.new()
 	astar_grid.region = full_grid_region
@@ -41,7 +41,7 @@ func get_next_position(moving_unit: BattleUnit, target_unit: BattleUnit) -> Vect
 		astar_grid.set_point_solid(unit_tile, true)
 		return Vector2(-1, -1)
 
-	# 步骤3：但当存在有效的下一个格子时，更新网格，将下一个位置设为障碍物，并返回新坐标
+	# 步骤3：当存在有效的下一个格子时，更新网格，将下一个位置设为障碍物，并返回新坐标
 	var next_tile := path[1]
 	battle_grid.remove_unit(unit_tile)
 	battle_grid.add_unit(next_tile, moving_unit)

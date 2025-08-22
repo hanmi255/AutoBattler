@@ -1,5 +1,5 @@
 class_name Shop
-extends VBoxContainer
+extends Control
 
 signal unit_bought(unit: UnitStats)
 
@@ -21,13 +21,12 @@ func _ready() -> void:
 
 func _roll_units() -> void:
 	for i in 5:
-		var rarity = player_stats.get_random_rarity_for_level()
+		var rarity := player_stats.get_random_rarity_for_level()
 		var new_card := card_spawner.spawn_scene(shop_cards) as UnitCard
 		new_card.unit_stats = unit_pool.get_random_unit_by_rarity(rarity)
 		new_card.unit_bought.connect(_on_unit_bought)
 
 
-## 将未被购买的单位放回池子 否则将会被永远删除[见_ready()]
 func _put_back_remaining_to_pool() -> void:
 	for unit_card: UnitCard in shop_cards.get_children():
 		if not unit_card.bought:
